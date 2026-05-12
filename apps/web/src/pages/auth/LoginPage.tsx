@@ -2,6 +2,10 @@ import { useState } from 'react'
 
 type Locale = 'ar' | 'en' | 'fr'
 
+type LoginPageProps = {
+  onLogin: () => void
+}
+
 const languages = {
   ar: { label: 'العربية', short: 'AR', dir: 'rtl' },
   en: { label: 'English', short: 'EN', dir: 'ltr' },
@@ -12,8 +16,7 @@ const copy = {
   ar: {
     badge: 'منصة تشغيل أعمال موحدة',
     title: 'BMBOU ERP يحوّل البيع، المخزون، الصيانة والمالية إلى نظام تشغيل واحد.',
-    description:
-      'واجهة ذكية لأصحاب المتاجر ومراكز الصيانة والفرق المالية: كل عملية بيع، حركة مخزون، تذكرة إصلاح، دفعة عميل وتقرير مالي تظهر في مساحة عمل واحدة واضحة وسريعة.',
+    description: 'واجهة ذكية لأصحاب المتاجر ومراكز الصيانة والفرق المالية: كل عملية بيع، حركة مخزون، تذكرة إصلاح، دفعة عميل وتقرير مالي تظهر في مساحة عمل واحدة واضحة وسريعة.',
     chips: ['بيع أسرع', 'مخزون أدق', 'صيانة منظمة', 'تقارير مالية', 'تتبع العملاء', 'قرارات أذكى'],
     cards: [
       ['تحكم تشغيلي', 'من نقطة البيع إلى المخزون', 'كل عملية تؤثر مباشرة على المخزون، الفواتير، التدفق المالي وسجل العميل.'],
@@ -29,15 +32,14 @@ const copy = {
     password: 'كلمة المرور',
     remember: 'تذكرني',
     forgot: 'نسيت كلمة المرور؟',
+    create: 'إنشاء حساب جديد',
     cta: 'دخول مساحة العمل',
     note: 'وضع العرض التجريبي. التالي: المصادقة الحقيقية، الصلاحيات، الفروع وحفظ اللغة.',
-    alert: 'تم قبول الدخول التجريبي إلى BMBOU ERP.',
   },
   en: {
     badge: 'Unified business operating platform',
     title: 'BMBOU ERP turns sales, inventory, repair, and finance into one operating system.',
-    description:
-      'A smart workspace for retailers, repair centers, and finance teams: every sale, stock move, repair ticket, customer payment, and financial report lives in one clear interface.',
+    description: 'A smart workspace for retailers, repair centers, and finance teams: every sale, stock move, repair ticket, customer payment, and financial report lives in one clear interface.',
     chips: ['Faster sales', 'Accurate stock', 'Repair flow', 'Financial reports', 'Customer tracking', 'Smarter decisions'],
     cards: [
       ['Operational control', 'From POS to inventory', 'Every transaction updates stock, invoices, cash flow, and customer history.'],
@@ -53,15 +55,14 @@ const copy = {
     password: 'Password',
     remember: 'Keep me signed in',
     forgot: 'Forgot password?',
+    create: 'Create account',
     cta: 'Enter workspace',
     note: 'Demo mode. Next: real authentication, roles, branches, and language persistence.',
-    alert: 'BMBOU ERP demo access accepted.',
   },
   fr: {
     badge: 'Plateforme unifiée de gestion',
     title: 'BMBOU ERP transforme ventes, stock, réparation et finance en un seul système.',
-    description:
-      'Un espace intelligent pour commerces, centres de réparation et équipes financières : ventes, stock, tickets, paiements et rapports dans une interface claire.',
+    description: 'Un espace intelligent pour commerces, centres de réparation et équipes financières : ventes, stock, tickets, paiements et rapports dans une interface claire.',
     chips: ['Ventes rapides', 'Stock précis', 'Réparation', 'Rapports financiers', 'Suivi client', 'Décisions claires'],
     cards: [
       ['Contrôle opérationnel', 'Du point de vente au stock', 'Chaque transaction met à jour le stock, les factures, la trésorerie et l’historique client.'],
@@ -77,13 +78,13 @@ const copy = {
     password: 'Mot de passe',
     remember: 'Rester connecté',
     forgot: 'Mot de passe oublié ?',
+    create: 'Créer un compte',
     cta: 'Entrer dans l’espace',
     note: 'Mode démo. Ensuite : authentification réelle, rôles, branches et préférence de langue.',
-    alert: 'Accès démo BMBOU ERP accepté.',
   },
 }
 
-export function LoginPage() {
+export function LoginPage({ onLogin }: LoginPageProps) {
   const [locale, setLocale] = useState<Locale>('ar')
   const [languageOpen, setLanguageOpen] = useState(false)
   const currentLanguage = languages[locale]
@@ -91,7 +92,7 @@ export function LoginPage() {
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
-    window.alert(t.alert)
+    onLogin()
   }
 
   function selectLanguage(nextLocale: Locale) {
@@ -197,6 +198,10 @@ export function LoginPage() {
             <button className="primary-button" type="submit">
               {t.cta}
               <span>{currentLanguage.dir === 'rtl' ? '←' : '→'}</span>
+            </button>
+
+            <button type="button" className="secondary-auth-button">
+              {t.create}
             </button>
           </form>
 

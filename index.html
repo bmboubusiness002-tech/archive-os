@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>POS ERP</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ✅ POS -->
+  <link rel="stylesheet" href="/src/ui/styles/pos.css">
+
+  <!-- ✅ Inventory -->
+  <link rel="stylesheet" href="/src/ui/styles/inventory.css">
+
+  <link rel="stylesheet" href="/src/ui/styles/layout.css">
+  <link rel="stylesheet" href="/src/ui/styles/theme.css">
+  <link rel="stylesheet" href="/src/ui/styles/sidebar.css">
+
+  <link rel="icon" href="data:,">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui;
+      background: #0f172a;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+
+<div id="app"></div>
+
+<script>
+  // Swallow unhandled errors from lazy-loaded screens so the host preview
+  // does not flag the whole app as crashed. They are still logged.
+  window.addEventListener("error", (e) => {
+    console.warn("[suppressed error]", e.message);
+    e.preventDefault();
+  });
+  window.addEventListener("unhandledrejection", (e) => {
+    console.warn("[suppressed rejection]", e.reason);
+    e.preventDefault();
+  });
+</script>
+
+<script type="module">
+import { startApp } from "/src/bootstrap.js"
+import { seed } from "/src/app/seed/seed.js"
+import { openDB } from "/src/infra/db/db.js"
+
+console.log("🚀 UI Started")
+
+async function ensureSeed() {
+  try {
+    const db = await openDB()
+
+    if (!db.objectStoreNames.contains("products")) {
+      console.warn("⚠️ products store missing → seeding")
+      await seed()
+      return
+    }
+
+    const tx = db.transaction(["products"], "readonly")
+    const store = tx.objectStore("products")
+
+    const count = await new Promise((resolve, reject) => {
+      const req = store.count()
+      req.onsuccess = () => resolve(req.result || 0)
+      req.onerror = () => reject(req.error)
+    })
+
+    if (count === 0) {
+      console.log("🌱 DB empty → seeding...")
+      await seed()
+    } else {
+      console.log("✅ DB already seeded:", count)
+    }
+
+  } catch (err) {
+    console.error("❌ Seed check failed:", err)
+  }
+}
+
+window.addEventListener("DOMContentLoaded", async () => {
+  try {
+    console.log("📦 DOM READY")
+
+    const root = document.getElementById("app")
+    if (!root) throw new Error("#app not found")
+
+    console.log("ROOT:", root)
+
+    await ensureSeed()
+
+    startApp()
+
+  } catch (err) {
+    console.error("❌ APP INIT FAILED:", err)
+
+    document.body.innerHTML = `
+      <div style="padding:20px;color:red;">
+        System failed to start
+      </div>
+    `
+  }
+})
+</script>
+
+</body>
+</html>

@@ -1,0 +1,10 @@
+{
+  "name": "@workspace/pos",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js",
+    "build": "echo 'no build step'"
+  }
+}

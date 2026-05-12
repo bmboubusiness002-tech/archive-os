@@ -1,0 +1,25 @@
+.financial-reports {
+  padding: 20px;
+  color: #e5e7eb;
+}
+
+.section {
+  margin-bottom: 25px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+}
+
+.row.strong b {
+  font-size: 18px;
+}
+
+.insight {
+  background: #1f2937;
+  padding: 8px;
+  margin: 6px 0;
+  border-radius: 6px;
+}

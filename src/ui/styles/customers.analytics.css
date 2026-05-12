@@ -1,0 +1,68 @@
+.analytics-container {
+  padding: 20px;
+  color: #e5e7eb;
+}
+
+.kpis {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.kpi {
+  background: #0f172a;
+  padding: 15px;
+  border-radius: 10px;
+  flex: 1;
+}
+
+.kpi span {
+  display: block;
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.kpi b {
+  font-size: 20px;
+}
+
+.danger {
+  color: #ef4444;
+}
+
+/* SECTIONS */
+
+.section {
+  margin-bottom: 25px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+}
+
+.row.danger {
+  color: #ef4444;
+}
+
+/* BARS */
+
+.bar {
+  margin: 5px 0;
+}
+
+.bar-fill {
+  height: 6px;
+  background: #3b82f6;
+  border-radius: 4px;
+}
+
+/* INSIGHTS */
+
+.insight {
+  background: #1f2937;
+  padding: 8px;
+  margin: 5px 0;
+  border-radius: 6px;
+}

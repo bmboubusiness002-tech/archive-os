@@ -1,0 +1,36 @@
+.payment-analytics {
+  padding: 20px;
+  color: white;
+}
+
+.cards {
+  display: flex;
+  gap: 10px;
+}
+
+.card {
+  background: #111;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.bar {
+  display: flex;
+  height: 10px;
+  margin: 10px 0;
+}
+
+.cash { background: green; }
+.card { background: blue; }
+.credit { background: red; }
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.signal {
+  background: #1f2937;
+  padding: 6px;
+  margin: 4px 0;
+}

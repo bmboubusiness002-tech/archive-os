@@ -1,0 +1,25 @@
+.finance-dashboard {
+  padding: 20px;
+  color: white;
+}
+
+.section {
+  margin-bottom: 25px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.signal {
+  background: #1f2937;
+  padding: 6px;
+  margin: 4px 0;
+}

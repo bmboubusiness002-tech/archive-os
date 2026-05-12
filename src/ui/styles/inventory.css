@@ -1,0 +1,109 @@
+/* ================= BASE ================= */
+
+.inventory {
+  padding: 12px;
+}
+
+.inv-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+}
+
+/* ================= CARD ================= */
+
+.inv-card {
+  background: #020617;
+  border: 1px solid #1e293b;
+  padding: 12px;
+  border-radius: 10px;
+  transition: transform .08s ease, border-color .08s ease;
+}
+
+.inv-card:hover {
+  transform: translateY(-2px);
+  border-color: #334155;
+}
+
+.inv-title {
+  font-weight: 600;
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+/* ================= DATA ================= */
+
+.inv-line {
+  font-size: 13px;
+  margin-bottom: 4px;
+  opacity: 0.9;
+}
+
+/* ================= SECTIONS ================= */
+
+.inv-section {
+  margin-top: 8px;
+  font-size: 13px;
+  opacity: 0.95;
+}
+
+.inv-section ul {
+  margin: 4px 0 0 14px;
+  padding: 0;
+}
+
+.inv-section li {
+  margin-bottom: 2px;
+}
+
+/* ================= ACTION ================= */
+
+.inv-action {
+  margin-top: 8px;
+  color: #22c55e;
+  font-weight: 600;
+}
+
+/* ================= STATES ================= */
+
+.OUT {
+  color: #ef4444;
+}
+
+.CRITICAL {
+  color: #ef4444;
+}
+
+.LOW {
+  color: #f59e0b;
+}
+
+/* ================= CONFIDENCE ================= */
+
+.conf-STRONG {
+  color: #22c55e;
+}
+
+.conf-MEDIUM {
+  color: #f59e0b;
+}
+
+.conf-WEAK {
+  color: #64748b;
+}
+
+/* ================= EMPTY ================= */
+
+.empty {
+  opacity: 0.5;
+  padding: 20px;
+  text-align: center;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+  .inv-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,142 @@
+/* ------------------------------------- */
+/* CUSTOMERS PRO UI */
+/* ------------------------------------- */
+
+.customers-container {
+  padding: 20px;
+  color: #e5e7eb;
+}
+
+.customers-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+}
+
+.controls input,
+.controls select {
+  padding: 8px;
+  background: #111;
+  border: 1px solid #333;
+  color: white;
+  border-radius: 6px;
+}
+
+/* GRID */
+
+.customers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 15px;
+}
+
+/* CARD */
+
+.customer-card {
+  background: #0f172a;
+  border: 1px solid #1f2937;
+  border-radius: 12px;
+  padding: 15px;
+  transition: 0.2s;
+}
+
+.customer-card:hover {
+  border-color: #3b82f6;
+  transform: translateY(-2px);
+}
+
+/* TOP */
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.name {
+  font-weight: bold;
+}
+
+.status {
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+}
+
+.status.VIP { background: gold; color: black; }
+.status.RISKY { background: #ef4444; }
+.status.ACTIVE { background: #22c55e; }
+.status.NEW { background: #6b7280; }
+
+/* BODY */
+
+.card-body {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.metric span {
+  display: block;
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.metric b {
+  font-size: 16px;
+}
+
+.debt {
+  color: #ef4444;
+}
+
+/* SIGNALS */
+
+.signals {
+  margin-bottom: 10px;
+}
+
+.signal {
+  display: inline-block;
+  background: #1f2937;
+  padding: 4px 6px;
+  margin: 2px;
+  border-radius: 6px;
+  font-size: 12px;
+}
+
+/* ACTIONS */
+
+.card-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.card-actions button {
+  flex: 1;
+  padding: 6px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.card-actions button:first-child {
+  background: #3b82f6;
+  color: white;
+}
+
+.card-actions button:last-child {
+  background: #10b981;
+  color: white;
+}
+
+.card-actions button:disabled {
+  background: #374151;
+  cursor: not-allowed;
+}

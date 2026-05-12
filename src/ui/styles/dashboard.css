@@ -1,0 +1,39 @@
+.dashboard {
+  padding: 20px;
+  color: #e5e7eb;
+}
+
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.card {
+  background: #0f172a;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.card span {
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.card b {
+  font-size: 20px;
+}
+
+/* SECTIONS */
+
+.section {
+  margin-bottom: 20px;
+}
+
+.signal {
+  background: #1f2937;
+  padding: 8px;
+  margin: 5px 0;
+  border-radius: 6px;
+}

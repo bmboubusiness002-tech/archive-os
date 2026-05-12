@@ -1,0 +1,20 @@
+.accounts, .journal {
+  padding: 20px;
+  color: #e5e7eb;
+}
+
+.form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.row {
+  padding: 6px 0;
+}
+
+.line {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 8px;
+}

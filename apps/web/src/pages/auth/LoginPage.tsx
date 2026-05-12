@@ -10,17 +10,21 @@ const languages = {
 
 const copy = {
   ar: {
-    title: 'منصة أعمال ذكية تدير البيع، المخزون، الصيانة، المال والعملاء من مكان واحد.',
-    description: 'BMBOU ERP يساعد أصحاب المتاجر، مراكز الصيانة، فرق المبيعات والإدارة المالية على تشغيل أعمالهم اليومية بوضوح وسرعة وتحكم كامل.',
-    chips: ['نقاط البيع', 'المخزون', 'إصلاح الأجهزة', 'المالية', 'العملاء', 'الموظفون', 'التقارير', 'التسعير الذكي'],
+    badge: 'منصة تشغيل أعمال موحدة',
+    title: 'BMBOU ERP يحوّل البيع، المخزون، الصيانة والمالية إلى نظام تشغيل واحد.',
+    description:
+      'واجهة ذكية لأصحاب المتاجر ومراكز الصيانة والفرق المالية: كل عملية بيع، حركة مخزون، تذكرة إصلاح، دفعة عميل وتقرير مالي تظهر في مساحة عمل واحدة واضحة وسريعة.',
+    chips: ['بيع أسرع', 'مخزون أدق', 'صيانة منظمة', 'تقارير مالية', 'تتبع العملاء', 'قرارات أذكى'],
     cards: [
-      ['تحكم يومي أسرع', 'عمليات موحدة', 'بيع، شراء، مخزون، عملاء وصيانة دون تشتيت بين أدوات متعددة.'],
-      ['قرارات أوضح', 'رؤية مالية', 'تتبع الإيرادات، المصاريف، النقد، الديون وقيمة المخزون لحظة بلحظة.'],
-      ['خدمة أقوى', 'تجربة عملاء', 'سجل عميل كامل، مدفوعات، إصلاحات، فواتير وتتبع حالة الخدمة.'],
+      ['تحكم تشغيلي', 'من نقطة البيع إلى المخزون', 'كل عملية تؤثر مباشرة على المخزون، الفواتير، التدفق المالي وسجل العميل.'],
+      ['رؤية إدارية', 'أرقام مفهومة لحظة بلحظة', 'إيرادات، مصاريف، ديون، نقد، قيمة المخزون وإشارات ذكية لاتخاذ القرار.'],
+      ['خدمة احترافية', 'إصلاحات وعملاء في مسار واحد', 'تذاكر صيانة، أجهزة، قطع غيار، فواتير وتتبع حالة الخدمة من نفس النظام.'],
     ],
+    previewTitle: 'نبض العمليات اليومي',
+    previewItems: ['بيع جديد خفّض المخزون', 'تذكرة إصلاح تنتظر قطعة', 'إشارة تسعير لمنتج بطيء', 'دفعة عميل جاهزة للتسجيل'],
     access: 'دخول آمن',
     signIn: 'تسجيل الدخول إلى BMBOU ERP',
-    signInText: 'ادخل إلى مساحة العمل لإدارة العمليات اليومية، المبيعات، المخزون، الصيانة والتقارير.',
+    signInText: 'ادخل إلى مساحة العمل لإدارة المبيعات، المخزون، الصيانة، العملاء والمالية.',
     email: 'البريد الإلكتروني',
     password: 'كلمة المرور',
     remember: 'تذكرني',
@@ -30,17 +34,21 @@ const copy = {
     alert: 'تم قبول الدخول التجريبي إلى BMBOU ERP.',
   },
   en: {
-    title: 'A smart business platform for sales, inventory, repair, finance, customers, and teams.',
-    description: 'BMBOU ERP helps retailers, repair centers, sales teams, and financial operators run daily work with clarity, speed, and full control.',
-    chips: ['Point of Sale', 'Inventory', 'Device Repair', 'Finance', 'Customers', 'Employees', 'Reports', 'Smart Pricing'],
+    badge: 'Unified business operating platform',
+    title: 'BMBOU ERP turns sales, inventory, repair, and finance into one operating system.',
+    description:
+      'A smart workspace for retailers, repair centers, and finance teams: every sale, stock move, repair ticket, customer payment, and financial report lives in one clear interface.',
+    chips: ['Faster sales', 'Accurate stock', 'Repair flow', 'Financial reports', 'Customer tracking', 'Smarter decisions'],
     cards: [
-      ['Faster daily control', 'Unified operations', 'Sales, purchases, stock, customers, and repair workflows without scattered tools.'],
-      ['Clearer decisions', 'Financial visibility', 'Track revenue, expenses, cash, debt, and inventory value in one workspace.'],
-      ['Better service', 'Customer experience', 'Customer history, payments, repair tickets, invoices, and service tracking.'],
+      ['Operational control', 'From POS to inventory', 'Every transaction updates stock, invoices, cash flow, and customer history.'],
+      ['Management visibility', 'Readable numbers in real time', 'Revenue, expenses, receivables, cash, inventory value, and decision signals.'],
+      ['Professional service', 'Repair and customers together', 'Repair tickets, devices, parts, invoices, and service status in one system.'],
     ],
+    previewTitle: 'Daily operations pulse',
+    previewItems: ['New sale reduced stock', 'Repair ticket waiting for part', 'Pricing signal for slow item', 'Customer payment ready to record'],
     access: 'Secure access',
     signIn: 'Sign in to BMBOU ERP',
-    signInText: 'Access your workspace to manage daily operations, sales, inventory, repair, and reports.',
+    signInText: 'Access your workspace to manage sales, inventory, repair, customers, and finance.',
     email: 'Email address',
     password: 'Password',
     remember: 'Keep me signed in',
@@ -50,17 +58,21 @@ const copy = {
     alert: 'BMBOU ERP demo access accepted.',
   },
   fr: {
-    title: 'Une plateforme intelligente pour les ventes, le stock, la réparation, la finance et les clients.',
-    description: 'BMBOU ERP aide les commerces, centres de réparation, équipes commerciales et responsables financiers à piloter leurs opérations avec clarté et rapidité.',
-    chips: ['Point de vente', 'Stock', 'Réparation', 'Finance', 'Clients', 'Employés', 'Rapports', 'Tarification intelligente'],
+    badge: 'Plateforme unifiée de gestion',
+    title: 'BMBOU ERP transforme ventes, stock, réparation et finance en un seul système.',
+    description:
+      'Un espace intelligent pour commerces, centres de réparation et équipes financières : ventes, stock, tickets, paiements et rapports dans une interface claire.',
+    chips: ['Ventes rapides', 'Stock précis', 'Réparation', 'Rapports financiers', 'Suivi client', 'Décisions claires'],
     cards: [
-      ['Contrôle quotidien', 'Opérations unifiées', 'Ventes, achats, stock, clients et réparations sans outils dispersés.'],
-      ['Décisions plus claires', 'Vision financière', 'Suivez revenus, dépenses, trésorerie, dettes et valeur du stock au même endroit.'],
-      ['Meilleur service', 'Expérience client', 'Historique client, paiements, tickets de réparation, factures et suivi.'],
+      ['Contrôle opérationnel', 'Du point de vente au stock', 'Chaque transaction met à jour le stock, les factures, la trésorerie et l’historique client.'],
+      ['Vision de gestion', 'Des chiffres lisibles en temps réel', 'Revenus, dépenses, créances, cash, valeur du stock et signaux de décision.'],
+      ['Service professionnel', 'Réparation et clients ensemble', 'Tickets, appareils, pièces, factures et statut de service dans un seul système.'],
     ],
+    previewTitle: 'Pulse opérationnel quotidien',
+    previewItems: ['Nouvelle vente et stock réduit', 'Ticket en attente de pièce', 'Signal prix sur produit lent', 'Paiement client prêt à saisir'],
     access: 'Accès sécurisé',
     signIn: 'Connexion à BMBOU ERP',
-    signInText: 'Accédez à votre espace pour gérer les opérations, ventes, stocks, réparations et rapports.',
+    signInText: 'Accédez à votre espace pour gérer ventes, stock, réparation, clients et finance.',
     email: 'Adresse e-mail',
     password: 'Mot de passe',
     remember: 'Rester connecté',
@@ -89,13 +101,16 @@ export function LoginPage() {
 
   return (
     <main className="login-page" dir={currentLanguage.dir} lang={locale}>
-      <section className="login-hero">
-        <div className="login-orb login-orb-primary" />
-        <div className="login-orb login-orb-secondary" />
+      <div className="ambient-layer" aria-hidden="true">
+        <span className="ambient-dot dot-one" />
+        <span className="ambient-dot dot-two" />
+        <span className="ambient-dot dot-three" />
+      </div>
 
+      <section className="login-hero">
         <div className="language-menu">
           <button className="language-trigger" type="button" onClick={() => setLanguageOpen(!languageOpen)}>
-            <span className="language-globe">◌</span>
+            <span className="language-globe">◎</span>
             <span>{currentLanguage.label}</span>
             <strong>{currentLanguage.short}</strong>
           </button>
@@ -103,12 +118,7 @@ export function LoginPage() {
           {languageOpen && (
             <div className="language-popover">
               {(Object.keys(languages) as Locale[]).map((language) => (
-                <button
-                  key={language}
-                  type="button"
-                  className={language === locale ? 'language-item language-item-active' : 'language-item'}
-                  onClick={() => selectLanguage(language)}
-                >
+                <button key={language} type="button" className={language === locale ? 'language-item language-item-active' : 'language-item'} onClick={() => selectLanguage(language)}>
                   <span>{languages[language].label}</span>
                   <small>{languages[language].short}</small>
                 </button>
@@ -118,12 +128,15 @@ export function LoginPage() {
         </div>
 
         <div className="login-brand">
-          <div className="brand-mark">B</div>
-          <div>
-            <p className="eyebrow">BMBOU ERP</p>
-            <h1>{t.title}</h1>
-            <p className="hero-copy">{t.description}</p>
+          <div className="brand-row">
+            <div className="brand-mark">B</div>
+            <div>
+              <p className="eyebrow">BMBOU ERP</p>
+              <p className="hero-badge">{t.badge}</p>
+            </div>
           </div>
+          <h1>{t.title}</h1>
+          <p className="hero-copy">{t.description}</p>
         </div>
 
         <div className="feature-showcase">
@@ -142,6 +155,19 @@ export function LoginPage() {
       </section>
 
       <section className="login-panel-wrap">
+        <div className="operations-preview">
+          <div className="preview-header">
+            <span className="pulse-dot" />
+            <strong>{t.previewTitle}</strong>
+          </div>
+          {t.previewItems.map((item, index) => (
+            <div className="preview-row" key={item}>
+              <span>0{index + 1}</span>
+              <p>{item}</p>
+            </div>
+          ))}
+        </div>
+
         <div className="login-card">
           <div className="login-card-header">
             <p className="eyebrow">{t.access}</p>

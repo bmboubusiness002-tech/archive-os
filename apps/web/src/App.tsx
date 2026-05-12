@@ -1,9 +1,13 @@
 import { useState } from 'react'
 import { LoginPage } from './pages/auth/LoginPage'
 import { DashboardPage } from './pages/dashboard/DashboardPage'
+import { POSPage } from './domains/pos/pages/POSPage'
+
+type WorkspaceView = 'overview' | 'pos'
 
 export default function App() {
   const [authenticated, setAuthenticated] = useState(false)
+  const [activeView, setActiveView] = useState<WorkspaceView>('overview')
 
   if (!authenticated) {
     return <LoginPage onLogin={() => setAuthenticated(true)} />
@@ -16,13 +20,23 @@ export default function App() {
 
         <nav className="workspace-nav">
           <span className="workspace-nav-section">Intelligence</span>
-          <button className="workspace-nav-active">Overview</button>
+          <button
+            className={activeView === 'overview' ? 'workspace-nav-active' : undefined}
+            onClick={() => setActiveView('overview')}
+          >
+            Overview
+          </button>
           <button>Predictive Analytics</button>
           <button>Strategy Advisor</button>
           <button>Scenario Simulation</button>
 
           <span className="workspace-nav-section">Operations</span>
-          <button>POS</button>
+          <button
+            className={activeView === 'pos' ? 'workspace-nav-active' : undefined}
+            onClick={() => setActiveView('pos')}
+          >
+            POS · Start Sale
+          </button>
           <button>Sales</button>
           <button>Inventory</button>
           <button>RepairFlow</button>
@@ -36,7 +50,7 @@ export default function App() {
         <header className="workspace-topbar">
           <div>
             <p>Welcome back</p>
-            <h1>BMBOU ERP Command Center</h1>
+            <h1>{activeView === 'overview' ? 'BMBOU ERP Command Center' : 'POS · Start Sale'}</h1>
           </div>
 
           <div className="workspace-topbar-actions">
@@ -48,7 +62,7 @@ export default function App() {
           </div>
         </header>
 
-        <DashboardPage />
+        {activeView === 'overview' ? <DashboardPage /> : <POSPage />}
       </section>
     </main>
   )

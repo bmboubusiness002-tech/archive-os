@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { LoginPage } from './pages/auth/LoginPage'
+import { DashboardPage } from './pages/dashboard/DashboardPage'
 
 export default function App() {
   const [authenticated, setAuthenticated] = useState(false)
@@ -12,17 +13,22 @@ export default function App() {
     <main className="workspace-shell">
       <aside className="workspace-sidebar">
         <div className="workspace-logo">BMBOU ERP</div>
+
         <nav className="workspace-nav">
           <span className="workspace-nav-section">Intelligence</span>
-          <button>Command Center</button>
+          <button className="workspace-nav-active">Overview</button>
           <button>Predictive Analytics</button>
           <button>Strategy Advisor</button>
+          <button>Scenario Simulation</button>
+
           <span className="workspace-nav-section">Operations</span>
           <button>POS</button>
+          <button>Sales</button>
           <button>Inventory</button>
           <button>RepairFlow</button>
           <button>Finance</button>
-          <button>Customers</button>
+          <button>CRM</button>
+          <button>HR</button>
         </nav>
       </aside>
 
@@ -30,35 +36,19 @@ export default function App() {
         <header className="workspace-topbar">
           <div>
             <p>Welcome back</p>
-            <h1>Business Command Center</h1>
+            <h1>BMBOU ERP Command Center</h1>
           </div>
-          <button className="workspace-logout" onClick={() => setAuthenticated(false)}>
-            Sign out
-          </button>
+
+          <div className="workspace-topbar-actions">
+            <button className="workspace-action-button">Global Search</button>
+            <button className="workspace-action-button">AI Assistant</button>
+            <button className="workspace-logout" onClick={() => setAuthenticated(false)}>
+              Sign out
+            </button>
+          </div>
         </header>
 
-        <div className="workspace-grid">
-          <article className="workspace-card workspace-card-large">
-            <span>Today</span>
-            <h2>Operations pulse is ready</h2>
-            <p>POS, inventory, repair tickets, finance signals, and customer activity will be connected here as real modules are built.</p>
-          </article>
-          <article className="workspace-card">
-            <span>Inventory</span>
-            <strong>400</strong>
-            <p>Units tracked</p>
-          </article>
-          <article className="workspace-card">
-            <span>Finance</span>
-            <strong>0.00</strong>
-            <p>Net cash</p>
-          </article>
-          <article className="workspace-card">
-            <span>RepairFlow</span>
-            <strong>Ready</strong>
-            <p>Ticket system prepared</p>
-          </article>
-        </div>
+        <DashboardPage />
       </section>
     </main>
   )

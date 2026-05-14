@@ -1,5 +1,6 @@
 import { renderLayout } from "./layout.engine.js";
 import { getRuntimeModuleRegistry } from "../../runtime/registry/module.registry.js";
+import { updateWorkspaceState } from "../../runtime/state/runtime.state.js";
 
 const expanded = new Set(["intelligence", "operations"]);
 let activeRoute = "/";
@@ -71,6 +72,10 @@ function bindEvents(root) {
         expanded.add(id);
       }
 
+      updateWorkspaceState({
+        expandedSections: [...expanded]
+      });
+
       renderSidebar(root);
     };
   });
@@ -81,6 +86,12 @@ function bindEvents(root) {
       const label = element.dataset.label;
 
       activeRoute = route;
+
+      updateWorkspaceState({
+        activeRoute: route,
+        activeLabel: label,
+        lastNavigationAt: Date.now()
+      });
 
       try {
         renderLayout(route, label);
@@ -98,6 +109,10 @@ function bindEvents(root) {
 
   search.oninput = () => {
     const query = search.value.trim().toLowerCase();
+
+    updateWorkspaceState({
+      navigationSearch: query
+    });
 
     root.querySelectorAll(".item").forEach((item) => {
       const text = item.querySelector(".lbl")?.textContent.toLowerCase() || "";

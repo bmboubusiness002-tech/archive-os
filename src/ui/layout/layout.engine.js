@@ -1,6 +1,7 @@
 // Route dispatcher with graceful fallback for unimplemented screens.
 
 import { createRouteRegistry } from "../../runtime/registry/route.registry.js";
+import { updateWorkspaceState } from "../../runtime/state/runtime.state.js";
 
 import { loadDashboard }    from "../screens/dashboard.screen.js";
 import { loadOperations }   from "../screens/operations.screen.js";
@@ -150,6 +151,13 @@ export async function renderLayout(route, label) {
   view.innerHTML = "";
 
   const definition = routeRegistry.get(route);
+
+  updateWorkspaceState({
+    currentRoute: route,
+    currentLabel: label || definition?.title || "Module",
+    currentDomain: definition?.domain || null,
+    lastRouteChangeAt: Date.now()
+  });
 
   if (definition) {
     if (title) {

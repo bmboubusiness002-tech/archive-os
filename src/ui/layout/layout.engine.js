@@ -1,5 +1,7 @@
 // Route dispatcher with graceful fallback for unimplemented screens.
 
+import { createRouteRegistry } from "../../runtime/registry/route.registry.js";
+
 import { loadDashboard }    from "../screens/dashboard.screen.js";
 import { loadOperations }   from "../screens/operations.screen.js";
 import { loadPeople }       from "../screens/people.screen.js";
@@ -47,126 +49,132 @@ import {
   renderSystem, renderPrivacy, renderTerms
 } from "../../modules/admin/admin.screen.js";
 
-const routes = {
-  "/":                         { title: "Dashboard",            load: loadDashboard },
+const routeDefinitions = {
+  "/":                         { title: "Dashboard",            load: loadDashboard, domain: "dashboard" },
 
-  // POS
-  "/pos":                      { title: "POS · Start Sale",     load: renderPOS },
-  "/pos/sessions":             { title: "POS · Sessions",       load: renderSessions },
-  "/pos/returns":              { title: "POS · Returns",        load: renderReturns },
+  "/pos":                      { title: "POS · Start Sale",     load: renderPOS, domain: "pos" },
+  "/pos/sessions":             { title: "POS · Sessions",       load: renderSessions, domain: "pos" },
+  "/pos/returns":              { title: "POS · Returns",        load: renderReturns, domain: "pos" },
 
-  // Sales
-  "/sales":                    { title: "Sales History",        load: renderSalesHistory },
-  "/sales/invoices":           { title: "Invoices",             load: renderInvoices },
-  "/sales/quotations":         { title: "Quotations",           load: renderQuotations },
-  "/sales/payments":           { title: "Customer Payments",    load: renderPayments },
-  "/receipts":                 { title: "Receipts",             load: renderInvoices },
+  "/sales":                    { title: "Sales History",        load: renderSalesHistory, domain: "sales" },
+  "/sales/invoices":           { title: "Invoices",             load: renderInvoices, domain: "sales" },
+  "/sales/quotations":         { title: "Quotations",           load: renderQuotations, domain: "sales" },
+  "/sales/payments":           { title: "Customer Payments",    load: renderPayments, domain: "sales" },
+  "/receipts":                 { title: "Receipts",             load: renderInvoices, domain: "finance" },
 
-  // Inventory
-  "/inventory":                { title: "Inventory · Stock",    load: renderInventory },
-  "/products":                 { title: "Catalog",              load: renderInventory },
-  "/inventory/warehouses":     { title: "Warehouses",           load: renderWarehouses },
-  "/inventory/movements":      { title: "Stock Movements",      load: renderMovements },
-  "/inventory/pricing":        { title: "Smart Pricing",        load: renderPricing },
+  "/inventory":                { title: "Inventory · Stock",    load: renderInventory, domain: "inventory" },
+  "/products":                 { title: "Catalog",              load: renderInventory, domain: "inventory" },
+  "/inventory/warehouses":     { title: "Warehouses",           load: renderWarehouses, domain: "inventory" },
+  "/inventory/movements":      { title: "Stock Movements",      load: renderMovements, domain: "inventory" },
+  "/inventory/pricing":        { title: "Smart Pricing",        load: renderPricing, domain: "inventory" },
 
-  // Manufacturing
-  "/manufacturing/bom":        { title: "Bills of Materials",   load: renderBOM },
-  "/manufacturing/orders":     { title: "Production Orders",    load: renderProductionOrders },
-  "/manufacturing/centers":    { title: "Work Centers",         load: renderWorkCenters },
+  "/manufacturing/bom":        { title: "Bills of Materials",   load: renderBOM, domain: "manufacturing" },
+  "/manufacturing/orders":     { title: "Production Orders",    load: renderProductionOrders, domain: "manufacturing" },
+  "/manufacturing/centers":    { title: "Work Centers",         load: renderWorkCenters, domain: "manufacturing" },
 
-  // CRM Pro
-  "/customers/new":            { title: "Add Customer",         load: renderAddCustomer },
-  "/customers/crm":            { title: "Customer CRM",         load: renderCustomerCRM },
-  "/customers/credit":         { title: "Credit & Pay",         load: renderCredit },
+  "/customers/new":            { title: "Add Customer",         load: renderAddCustomer, domain: "crm" },
+  "/customers/crm":            { title: "Customer CRM",         load: renderCustomerCRM, domain: "crm" },
+  "/customers/credit":         { title: "Credit & Pay",         load: renderCredit, domain: "crm" },
 
-  // Finance extras
-  "/finance/cashbank":         { title: "Cash / Bank",          load: renderCashBank },
-  "/finance/installments":     { title: "Installment Plans",    load: renderInstallments },
-  "/finance/journal":          { title: "Journal Entries",      load: renderJournal },
-  "/finance/accounts":         { title: "Chart of Accounts",    load: renderAccounts },
+  "/finance/cashbank":         { title: "Cash / Bank",          load: renderCashBank, domain: "finance" },
+  "/finance/installments":     { title: "Installment Plans",    load: renderInstallments, domain: "finance" },
+  "/finance/journal":          { title: "Journal Entries",      load: renderJournal, domain: "finance" },
+  "/finance/accounts":         { title: "Chart of Accounts",    load: renderAccounts, domain: "finance" },
 
-  // HRM
-  "/hr/employees":             { title: "Employees",            load: renderEmployees },
-  "/hr/employees/new":         { title: "Add Employee",         load: renderAddEmployee },
-  "/hr/payroll":               { title: "Payroll",              load: renderPayroll },
-  "/hr/timesheets":            { title: "Timesheets",           load: renderTimesheets },
-  "/hr/roles":                 { title: "Roles",                load: renderRoles },
-  "/hr/roles/details":         { title: "Role Details",         load: renderRoleDetails },
-  "/hr/performance":           { title: "Performance Reviews",  load: renderPerformance },
-  "/hr/kpis":                  { title: "KPIs",                 load: renderKPIs },
-  "/hr/dept/hr":               { title: "Dept · HR",            load: renderDepartment("hr") },
-  "/hr/dept/sales":            { title: "Dept · Sales",         load: renderDepartment("sales") },
-  "/hr/dept/it":               { title: "Dept · IT",            load: renderDepartment("it") },
-  "/hr/dept/support":          { title: "Dept · Support",       load: renderDepartment("support") },
+  "/hr/employees":             { title: "Employees",            load: renderEmployees, domain: "hr" },
+  "/hr/employees/new":         { title: "Add Employee",         load: renderAddEmployee, domain: "hr" },
+  "/hr/payroll":               { title: "Payroll",              load: renderPayroll, domain: "hr" },
+  "/hr/timesheets":            { title: "Timesheets",           load: renderTimesheets, domain: "hr" },
+  "/hr/roles":                 { title: "Roles",                load: renderRoles, domain: "hr" },
+  "/hr/roles/details":         { title: "Role Details",         load: renderRoleDetails, domain: "hr" },
+  "/hr/performance":           { title: "Performance Reviews",  load: renderPerformance, domain: "hr" },
+  "/hr/kpis":                  { title: "KPIs",                 load: renderKPIs, domain: "hr" },
+  "/hr/dept/hr":               { title: "Dept · HR",            load: renderDepartment("hr"), domain: "hr" },
+  "/hr/dept/sales":            { title: "Dept · Sales",         load: renderDepartment("sales"), domain: "hr" },
+  "/hr/dept/it":               { title: "Dept · IT",            load: renderDepartment("it"), domain: "hr" },
+  "/hr/dept/support":          { title: "Dept · Support",       load: renderDepartment("support"), domain: "hr" },
 
-  // Purchases
-  "/purchase":                 { title: "Purchase Orders",      load: renderPurchaseOrders },
-  "/purchase/suppliers":       { title: "Suppliers",            load: renderSuppliers },
-  "/purchase/returns":         { title: "Purchase Returns",     load: renderPurchaseReturns },
+  "/purchase":                 { title: "Purchase Orders",      load: renderPurchaseOrders, domain: "purchase" },
+  "/purchase/suppliers":       { title: "Suppliers",            load: renderSuppliers, domain: "purchase" },
+  "/purchase/returns":         { title: "Purchase Returns",     load: renderPurchaseReturns, domain: "purchase" },
 
-  // Intelligence
-  "/intelligence":             { title: "Intelligence",         load: loadIntelligence },
-  "/intelligence/predictive":  { title: "Predictive Analytics", load: renderPredictive },
-  "/intelligence/strategy":    { title: "Strategy Advisor",     load: renderStrategy },
-  "/intelligence/scenarios":   { title: "Scenario Simulation",  load: renderScenarios },
+  "/intelligence":             { title: "Intelligence",         load: loadIntelligence, domain: "intelligence" },
+  "/intelligence/predictive":  { title: "Predictive Analytics", load: renderPredictive, domain: "intelligence" },
+  "/intelligence/strategy":    { title: "Strategy Advisor",     load: renderStrategy, domain: "intelligence" },
+  "/intelligence/scenarios":   { title: "Scenario Simulation",  load: renderScenarios, domain: "intelligence" },
 
-  // Misc
-  "/customers":                { title: "Customers",            load: loadPeople },
-  "/partners":                 { title: "Partners",             load: loadPeople },
-  "/finance":                  { title: "Finance Dashboard",    load: loadTransactions },
-  "/expenses":                 { title: "Expenses",             load: loadTransactions },
-  // Repair
-  "/repair":                       { title: "Repair Tickets",      load: renderRepairTickets() },
-  "/repair/new":                   { title: "New Repair Ticket",   load: renderRepairTickets() },
-  "/repair/devices/phones":        { title: "Phone repairs",       load: renderRepairTickets("phone") },
-  "/repair/devices/laptops":       { title: "Laptop repairs",      load: renderRepairTickets("laptop") },
-  "/repair/devices/tvs":           { title: "TV repairs",          load: renderRepairTickets("tv") },
-  "/repair/devices/consoles":      { title: "Console repairs",     load: renderRepairTickets("console") },
-  "/repair/diagnostics":           { title: "Diagnostic Reports",  load: renderDiagnostics },
-  "/repair/diagnostics/tests":     { title: "Hardware Tests",      load: renderTests },
-  "/repair/parts":                 { title: "Spare Parts",         load: renderParts },
-  "/repair/parts/serial":          { title: "Serial / IMEI",       load: renderSerialLookup },
-  "/repair/billing":               { title: "Repair Invoices",     load: renderRepairBilling },
-  "/repair/portal":                { title: "Customer Tracking",   load: renderPortal },
-  "/repair/board":                 { title: "Technician Board",    load: renderBoard },
+  "/customers":                { title: "Customers",            load: loadPeople, domain: "crm" },
+  "/partners":                 { title: "Partners",             load: loadPeople, domain: "crm" },
+  "/finance":                  { title: "Finance Dashboard",    load: loadTransactions, domain: "finance" },
+  "/expenses":                 { title: "Expenses",             load: loadTransactions, domain: "finance" },
 
-  // Reports
-  "/reports/sales":                { title: "Sales Reports",       load: renderSalesReport },
-  "/reports/inventory":            { title: "Inventory Reports",   load: renderInventoryReport },
-  "/reports/financial":            { title: "Financial Reports",   load: renderFinancialReport },
+  "/repair":                       { title: "Repair Tickets",      load: renderRepairTickets(), domain: "repair" },
+  "/repair/new":                   { title: "New Repair Ticket",   load: renderRepairTickets(), domain: "repair" },
+  "/repair/devices/phones":        { title: "Phone repairs",       load: renderRepairTickets("phone"), domain: "repair" },
+  "/repair/devices/laptops":       { title: "Laptop repairs",      load: renderRepairTickets("laptop"), domain: "repair" },
+  "/repair/devices/tvs":           { title: "TV repairs",          load: renderRepairTickets("tv"), domain: "repair" },
+  "/repair/devices/consoles":      { title: "Console repairs",     load: renderRepairTickets("console"), domain: "repair" },
+  "/repair/diagnostics":           { title: "Diagnostic Reports",  load: renderDiagnostics, domain: "repair" },
+  "/repair/diagnostics/tests":     { title: "Hardware Tests",      load: renderTests, domain: "repair" },
+  "/repair/parts":                 { title: "Spare Parts",         load: renderParts, domain: "repair" },
+  "/repair/parts/serial":          { title: "Serial / IMEI",       load: renderSerialLookup, domain: "repair" },
+  "/repair/billing":               { title: "Repair Invoices",     load: renderRepairBilling, domain: "repair" },
+  "/repair/portal":                { title: "Customer Tracking",   load: renderPortal, domain: "repair" },
+  "/repair/board":                 { title: "Technician Board",    load: renderBoard, domain: "repair" },
 
-  // Admin
-  "/admin/users":                  { title: "Users",               load: renderUsers },
-  "/admin/roles":                  { title: "Admin Roles",         load: renderAdminRoles },
-  "/admin/branches":               { title: "Branch Management",   load: renderBranches },
-  "/admin/templates":              { title: "Print Templates",     load: renderTemplates },
-  "/admin/privacy":                { title: "Privacy Policy",      load: renderPrivacy },
-  "/admin/terms":                  { title: "Terms & Conditions",  load: renderTerms },
+  "/reports/sales":                { title: "Sales Reports",       load: renderSalesReport, domain: "reports" },
+  "/reports/inventory":            { title: "Inventory Reports",   load: renderInventoryReport, domain: "reports" },
+  "/reports/financial":            { title: "Financial Reports",   load: renderFinancialReport, domain: "reports" },
 
-  "/system":                       { title: "System",              load: renderSystem },
+  "/admin/users":                  { title: "Users",               load: renderUsers, domain: "admin" },
+  "/admin/roles":                  { title: "Admin Roles",         load: renderAdminRoles, domain: "admin" },
+  "/admin/branches":               { title: "Branch Management",   load: renderBranches, domain: "admin" },
+  "/admin/templates":              { title: "Print Templates",     load: renderTemplates, domain: "admin" },
+  "/admin/privacy":                { title: "Privacy Policy",      load: renderPrivacy, domain: "admin" },
+  "/admin/terms":                  { title: "Terms & Conditions",  load: renderTerms, domain: "admin" },
+
+  "/system":                       { title: "System",              load: renderSystem, domain: "system" },
 };
 
+const routeRegistry = createRouteRegistry(routeDefinitions);
+
 export async function renderLayout(route, label) {
-  const view  = document.getElementById("view");
+  const view = document.getElementById("view");
   const title = document.getElementById("screen-title");
-  if (!view) { console.error("❌ #view not found"); return; }
 
-  view.innerHTML = "";
-
-  const def = routes[route];
-  if (def) {
-    if (title) title.textContent = def.title;
-    try {
-      return await def.load(view);
-    } catch (err) {
-      console.warn("screen failed, showing placeholder:", err);
-      renderComingSoon(view, def.title, route, err);
-    }
+  if (!view) {
+    console.error("❌ #view not found");
     return;
   }
 
-  if (title) title.textContent = label || "Module";
+  view.innerHTML = "";
+
+  const definition = routeRegistry.get(route);
+
+  if (definition) {
+    if (title) {
+      title.textContent = definition.title;
+    }
+
+    try {
+      return await definition.load(view);
+    } catch (error) {
+      console.warn("screen failed, showing placeholder:", error);
+      renderComingSoon(view, definition.title, route, error);
+    }
+
+    return;
+  }
+
+  if (title) {
+    title.textContent = label || "Module";
+  }
+
   renderComingSoon(view, label || route, route);
+}
+
+export function getRouteRegistry() {
+  return routeRegistry;
 }
 
 function renderComingSoon(view, label, route, err) {

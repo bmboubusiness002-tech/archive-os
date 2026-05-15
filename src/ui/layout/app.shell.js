@@ -11,6 +11,7 @@ import {
 } from "../../runtime/workspace/workspace.shell.js";
 
 import { printRuntimeAuditReport } from "../../runtime/audit/runtime.audit.js";
+import { runRuntimeDiagnostics } from "../../runtime/audit/runtime.diagnostics.js";
 
 export function startCockpit() {
   const root = document.getElementById("app");
@@ -49,6 +50,7 @@ export function startCockpit() {
 
   try {
     printRuntimeAuditReport();
+    runRuntimeDiagnostics();
   } catch (error) {
     console.warn("runtime audit failed", error);
   }

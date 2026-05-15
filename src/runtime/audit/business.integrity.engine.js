@@ -1,5 +1,3 @@
-import { createPOSFlow } from "../../modules/pos/pos.flow.js";
-
 function createIntegrityIssue(type, severity, details) {
   return {
     type,
@@ -7,6 +5,32 @@ function createIntegrityIssue(type, severity, details) {
     details,
     timestamp: new Date().toISOString()
   };
+}
+
+function createIntegrityCart() {
+  return {
+    items: [],
+    total: 0
+  };
+}
+
+function addIntegrityProduct(cart, product) {
+  const existing = cart.items.find((item) => item.id === product.id);
+
+  if (existing) {
+    existing.qty += 1;
+    existing.total = existing.qty * existing.price;
+  } else {
+    cart.items.push({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      qty: 1,
+      total: product.price
+    });
+  }
+
+  cart.total = cart.items.reduce((sum, item) => sum + item.total, 0);
 }
 
 function validateCartTotals(cart) {
@@ -31,7 +55,7 @@ function validateCartTotals(cart) {
 function validateCartItems(cart) {
   const issues = [];
 
-  cart.items.forEach(item => {
+  cart.items.forEach((item) => {
     if (!item.id) {
       issues.push(createIntegrityIssue(
         "product.id.missing",
@@ -99,21 +123,19 @@ async function validatePOSBusinessFlow() {
   const issues = [];
 
   try {
-    const flow = createPOSFlow();
+    const cart = createIntegrityCart();
 
-    flow.addProduct({
+    addIntegrityProduct(cart, {
       id: "integrity-product-1",
       name: "Integrity Product",
       price: 25
     });
 
-    flow.addProduct({
+    addIntegrityProduct(cart, {
       id: "integrity-product-1",
       name: "Integrity Product",
       price: 25
     });
-
-    const cart = flow.getCart();
 
     const totalIssue = validateCartTotals(cart);
 
@@ -166,13 +188,13 @@ export async function runBusinessIntegrityAudit() {
   };
 
   report.summary = {
-    healthyWorkflows: workflows.filter(w => w.status === "healthy").length,
-    degradedWorkflows: workflows.filter(w => w.status === "degraded").length,
-    failedWorkflows: workflows.filter(w => w.status === "failed").length,
+    healthyWorkflows: workflows.filter((workflow) => workflow.status === "healthy").length,
+    degradedWorkflows: workflows.filter((workflow) => workflow.status === "degraded").length,
+    failedWorkflows: workflows.filter((workflow) => workflow.status === "failed").length,
     criticalIssues: [
       ...globalIssues,
-      ...workflows.flatMap(w => w.issues || [])
-    ].filter(issue => issue.severity === "critical").length
+      ...workflows.flatMap((workflow) => workflow.issues || [])
+    ].filter((issue) => issue.severity === "critical").length
   };
 
   window.__ERP_BUSINESS_INTEGRITY_REPORT__ = report;

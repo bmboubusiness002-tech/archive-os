@@ -37,7 +37,7 @@ function scanRoutes() {
 function detectPlaceholderSurfaces() {
   const placeholders = [];
 
-  document.querySelectorAll("*”).forEach((node) => {
+  document.querySelectorAll("*").forEach((node) => {
     const text = node.textContent?.toLowerCase() || "";
 
     if (

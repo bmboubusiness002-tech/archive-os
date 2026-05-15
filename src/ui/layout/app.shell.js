@@ -14,6 +14,7 @@ import { printRuntimeAuditReport } from "../../runtime/audit/runtime.audit.js";
 import { runRuntimeDiagnostics } from "../../runtime/audit/runtime.diagnostics.js";
 import { buildDependencyGraph } from "../../runtime/audit/dependency.graph.js";
 import { runRecoveryScannerPass } from "../../runtime/audit/recovery.scanner.js";
+import { runLiveExecutionAudit } from "../../runtime/audit/live.execution.audit.js";
 
 export function startCockpit() {
   const root = document.getElementById("app");
@@ -55,6 +56,10 @@ export function startCockpit() {
     runRuntimeDiagnostics();
     buildDependencyGraph();
     runRecoveryScannerPass();
+
+    setTimeout(() => {
+      runLiveExecutionAudit();
+    }, 250);
   } catch (error) {
     console.warn("runtime audit failed", error);
   }

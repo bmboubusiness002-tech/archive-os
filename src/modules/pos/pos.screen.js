@@ -44,22 +44,48 @@ export async function renderPOS(view) {
   const grid = view.querySelector("#pos-grid");
   renderGrid(grid, products, stock);
 
-  view.querySelector("#pos-search").oninput = (e) => {
-    const q = e.target.value.trim().toLowerCase();
-    const filtered = !q ? products : products.filter(p =>
-      p.name.toLowerCase().includes(q) || (p.sku || "").toLowerCase().includes(q)
-    );
-    renderGrid(grid, filtered, stock);
-    view.querySelector("#pos-count").textContent = `${filtered.length} items`;
-  };
+  const search = view.querySelector("#pos-search");
+  const count = view.querySelector("#pos-count");
 
-  view.querySelector("#pos-clear").onclick = () => { cart = []; renderCart(view); };
-  view.querySelector("#pos-checkout").onclick = () => doCheckout(view);
+  if (search) {
+    search.oninput = (e) => {
+      const q = e.target.value.trim().toLowerCase();
+      const filtered = !q ? products : products.filter(p =>
+        p.name.toLowerCase().includes(q) || (p.sku || "").toLowerCase().includes(q)
+      );
+
+      renderGrid(view.querySelector("#pos-grid"), filtered, stock);
+
+      if (count) {
+        count.textContent = `${filtered.length} items`;
+      }
+    };
+  }
+
+  const clearBtn = view.querySelector("#pos-clear");
+  const checkoutBtn = view.querySelector("#pos-checkout");
+
+  if (clearBtn) {
+    clearBtn.onclick = () => {
+      cart = [];
+      renderCart(view);
+    };
+  }
+
+  if (checkoutBtn) {
+    checkoutBtn.onclick = () => doCheckout(view);
+  }
 
   renderCart(view);
 }
 
+function isPOSMounted(view) {
+  return !!view && !!view.querySelector(".pos-wrap");
+}
+
 function renderGrid(grid, products, stock) {
+  if (!grid) return;
+
   grid.innerHTML = products.map(p => {
     const qty = stock[p.id] ?? 0;
     const out = qty <= 0;
@@ -79,7 +105,11 @@ function renderGrid(grid, products, stock) {
     el.onclick = () => {
       const id = Number(el.dataset.id);
       const p = products.find(x => x.id === id);
+
+      if (!p) return;
+
       addToCart(p);
+
       const view = grid.closest(".view") || document.getElementById("view");
       renderCart(view);
     };
@@ -93,10 +123,14 @@ function addToCart(p) {
 }
 
 function renderCart(view) {
+  if (!isPOSMounted(view)) return;
+
   const linesEl = view.querySelector("#pos-lines");
   const itemsEl = view.querySelector("#pos-items");
   const totalEl = view.querySelector("#pos-total");
   const checkoutBtn = view.querySelector("#pos-checkout");
+
+  if (!linesEl || !itemsEl || !totalEl || !checkoutBtn) return;
 
   if (!cart.length) {
     linesEl.innerHTML = `<div class="pos-empty">Cart is empty</div>`;
@@ -117,6 +151,9 @@ function renderCart(view) {
     linesEl.querySelectorAll(".pline").forEach(row => {
       const id = Number(row.dataset.id);
       const line = cart.find(l => l.id === id);
+
+      if (!line) return;
+
       row.querySelectorAll("[data-act]").forEach(b => {
         b.onclick = () => {
           const act = b.dataset.act;
@@ -126,11 +163,16 @@ function renderCart(view) {
           renderCart(view);
         };
       });
-      row.querySelector(".qty").onchange = (e) => {
-        const v = Math.max(1, Number(e.target.value) || 1);
-        line.qty = v;
-        renderCart(view);
-      };
+
+      const qty = row.querySelector(".qty");
+
+      if (qty) {
+        qty.onchange = (e) => {
+          const v = Math.max(1, Number(e.target.value) || 1);
+          line.qty = v;
+          renderCart(view);
+        };
+      }
     });
   }
 
@@ -142,30 +184,59 @@ function renderCart(view) {
 }
 
 async function doCheckout(view) {
-  if (!cart.length) return;
+  if (!cart.length || !isPOSMounted(view)) return;
+
   const btn = view.querySelector("#pos-checkout");
-  btn.disabled = true;
+
+  if (btn) {
+    btn.disabled = true;
+  }
+
   try {
     const sale = await salesRepo.create(cart);
     emit("sale:created", sale);
-    showToast(view, `✅ Sale #${sale.id} saved · ${sale.total.toFixed(2)}`);
+
     cart = [];
-    // Refresh grid stock
+
+    if (!isPOSMounted(view)) return;
+
+    showToast(view, `✅ Sale #${sale.id} saved · ${sale.total.toFixed(2)}`);
+
     const [products, stock] = await Promise.all([productsRepo.list(), stockRepo.getAll()]);
+
+    if (!isPOSMounted(view)) return;
+
     renderGrid(view.querySelector("#pos-grid"), products, stock);
     renderCart(view);
   } catch (err) {
     console.error("checkout failed", err);
-    showToast(view, `❌ ${err.message || "Checkout failed"}`, true);
-    btn.disabled = false;
+
+    if (isPOSMounted(view)) {
+      showToast(view, `❌ ${err.message || "Checkout failed"}`, true);
+
+      const checkoutBtn = view.querySelector("#pos-checkout");
+      if (checkoutBtn) {
+        checkoutBtn.disabled = false;
+      }
+    }
   }
 }
 
 function showToast(view, msg, isError = false) {
-  const t = view.querySelector("#pos-toast");
-  t.textContent = msg;
-  t.className = "pos-toast show" + (isError ? " err" : "");
-  setTimeout(() => { t.className = "pos-toast"; }, 2400);
+  if (!isPOSMounted(view)) return;
+
+  const toast = view.querySelector("#pos-toast");
+
+  if (!toast) return;
+
+  toast.textContent = msg;
+  toast.className = "pos-toast show" + (isError ? " err" : "");
+
+  setTimeout(() => {
+    if (toast.isConnected) {
+      toast.className = "pos-toast";
+    }
+  }, 2400);
 }
 
 function escapeHtml(s) {

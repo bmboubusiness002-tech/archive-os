@@ -10,6 +10,8 @@ import {
   bindWorkspaceShell
 } from "../../runtime/workspace/workspace.shell.js";
 
+import { printRuntimeAuditReport } from "../../runtime/audit/runtime.audit.js";
+
 export function startCockpit() {
   const root = document.getElementById("app");
 
@@ -44,6 +46,12 @@ export function startCockpit() {
   renderRuntimeNotifications(document.getElementById("runtime-notifications"));
 
   bindWorkspaceShell();
+
+  try {
+    printRuntimeAuditReport();
+  } catch (error) {
+    console.warn("runtime audit failed", error);
+  }
 
   const initial = window.location.pathname && window.location.pathname !== "/"
     ? window.location.pathname

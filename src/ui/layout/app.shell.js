@@ -10,6 +10,8 @@ import {
   bindWorkspaceShell
 } from "../../runtime/workspace/workspace.shell.js";
 
+import { initializeRuntimeTelemetry } from "../../runtime/telemetry/runtime.telemetry.js";
+
 import { printRuntimeAuditReport } from "../../runtime/audit/runtime.audit.js";
 import { runRuntimeDiagnostics } from "../../runtime/audit/runtime.diagnostics.js";
 import { buildDependencyGraph } from "../../runtime/audit/dependency.graph.js";
@@ -53,6 +55,8 @@ export function startCockpit() {
   renderRuntimeNotifications(document.getElementById("runtime-notifications"));
 
   bindWorkspaceShell();
+
+  initializeRuntimeTelemetry();
 
   try {
     printRuntimeAuditReport();

@@ -2,18 +2,23 @@
 import { db } from "../pos/pos.db.js";
 import { ensureRepairSeed } from "./repair.db.js";
 import { fmtDate, statsBar, panel, emptyState, escapeHtml } from "../_shared/ui.js";
+import { safeQuery, safeSetHTML, isMounted } from "../../core/ui/safe-dom.js";
 
 const TESTS = [
   "Display", "Touchscreen", "Battery health", "Charging port",
-  "Speakers", "Microphone", "Wi-Fi", "Bluetooth", "Cameras", "Buttons"
+  "Speakers", "Microphone", "Wi‑Fi", "Bluetooth", "Cameras", "Buttons"
 ];
 
 export async function renderDiagnostics(view) {
+  if (!view) return;
+
   await ensureRepairSeed();
   await drawList(view);
 }
 
 async function drawList(view) {
+  if (!isMounted(view)) return;
+
   const reports = await db.repair_diagnostics.orderBy("createdAt").reverse().toArray();
   const tickets = await db.repair_tickets.toArray();
   const tIndex = Object.fromEntries(tickets.map(t => [t.id, t]));
@@ -47,8 +52,14 @@ async function drawList(view) {
 }
 
 export async function renderTests(view) {
+  if (!view) return;
+
   await ensureRepairSeed();
-  const tickets = await db.repair_tickets.where("status").anyOf("new","diagnosing","repairing","awaiting_parts").toArray();
+
+  const tickets = await db.repair_tickets
+    .where("status")
+    .anyOf("new", "diagnosing", "repairing", "awaiting_parts")
+    .toArray();
 
   view.innerHTML = `
     ${panel("Run hardware tests", tickets.length ? `
@@ -75,21 +86,59 @@ export async function renderTests(view) {
     <div id="dt-status"></div>
   `;
 
-  const saveBtn = view.querySelector("#dt-save");
-  if (saveBtn) saveBtn.onclick = async () => {
-    const ticketId = Number(view.querySelector("#dt-ticket").value);
-    const tests = TESTS.map(t => {
-      const v = view.querySelector(`[data-test="${t}"] input:checked`);
-      return { name: t, result: v ? v.value : "skip" };
-    });
-    const summary = view.querySelector("#dt-summary").value;
-    await db.repair_diagnostics.add({ ticketId, createdAt: Date.now(), tests, summary });
+  const saveBtn = safeQuery(view, "#dt-save");
 
-    // Auto-advance ticket status
-    const t = await db.repair_tickets.get(ticketId);
-    if (t && t.status === "new") await db.repair_tickets.update(ticketId, { status: "diagnosing" });
+  if (saveBtn) {
+    saveBtn.onclick = async () => {
+      const ticketSelect = safeQuery(view, "#dt-ticket");
+      const summaryField = safeQuery(view, "#dt-summary");
 
-    view.querySelector("#dt-status").innerHTML = `<div style="margin-top:14px;background:rgba(34,197,94,0.15);color:#4ade80;padding:10px;border-radius:8px;text-align:center;">✅ Report saved</div>`;
-    setTimeout(() => view.querySelector("#dt-status").innerHTML = "", 2400);
-  };
+      if (!ticketSelect || !summaryField) {
+        console.warn("diagnostics screen missing form nodes");
+        return;
+      }
+
+      const ticketId = Number(ticketSelect.value);
+
+      const tests = TESTS.map(t => {
+        const v = safeQuery(view, `[data-test="${t}"] input:checked`);
+
+        return {
+          name: t,
+          result: v ? v.value : "skip"
+        };
+      });
+
+      const summary = summaryField.value;
+
+      await db.repair_diagnostics.add({
+        ticketId,
+        createdAt: Date.now(),
+        tests,
+        summary
+      });
+
+      const ticket = await db.repair_tickets.get(ticketId);
+
+      if (ticket && ticket.status === "new") {
+        await db.repair_tickets.update(ticketId, {
+          status: "diagnosing"
+        });
+      }
+
+      safeSetHTML(
+        view,
+        "#dt-status",
+        `<div style="margin-top:14px;background:rgba(34,197,94,0.15);color:#4ade80;padding:10px;border-radius:8px;text-align:center;">✅ Report saved</div>`
+      );
+
+      setTimeout(() => {
+        if (!isMounted(view)) {
+          return;
+        }
+
+        safeSetHTML(view, "#dt-status", "");
+      }, 2400);
+    };
+  }
 }

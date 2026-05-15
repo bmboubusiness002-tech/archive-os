@@ -20,6 +20,7 @@ import { runLiveExecutionAudit } from "../../runtime/audit/live.execution.audit.
 import { runWorkflowTransactionAudit } from "../../runtime/audit/workflow.transaction.audit.js";
 import { runBusinessIntegrityAudit } from "../../runtime/audit/business.integrity.engine.js";
 import { generateRecoveryBacklog } from "../../runtime/audit/recovery.backlog.generator.js";
+import { buildRuntimeRecoveryMap } from "../../runtime/recovery/runtime.recovery.map.js";
 
 export function startCockpit() {
   const root = document.getElementById("app");
@@ -69,6 +70,7 @@ export function startCockpit() {
       await runWorkflowTransactionAudit();
       await runBusinessIntegrityAudit();
       generateRecoveryBacklog();
+      buildRuntimeRecoveryMap();
     }, 250);
   } catch (error) {
     console.warn("runtime audit failed", error);

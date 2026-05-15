@@ -31,16 +31,29 @@ body {
 }
 
 .topbar {
-  display: flex; align-items: center; justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
   padding: 14px 24px;
   background: rgba(15, 23, 42, 0.7);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid #1e293b;
-  font-weight: 600;
-  font-size: 15px;
   color: #f1f5f9;
 }
-.topbar #screen-title { font-size: 16px; }
+
+.topbar-left,
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.topbar #screen-title {
+  font-size: 16px;
+  font-weight: 700;
+}
+
 .topbar .status-pill {
   font-size: 12px;
   padding: 4px 10px;
@@ -50,13 +63,87 @@ body {
   border: 1px solid rgba(34, 197, 94, 0.3);
 }
 
+.workspace-dock {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.workspace-dock button {
+  background: rgba(30, 41, 59, 0.8);
+  border: 1px solid #334155;
+  color: #cbd5e1;
+  padding: 6px 10px;
+  border-radius: 10px;
+  font-size: 12px;
+}
+
+.workspace-context {
+  display: flex;
+  align-items: center;
+}
+
+.workspace-context-card {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 8px 12px;
+  border-radius: 12px;
+  border: 1px solid #1e293b;
+  background: rgba(15, 23, 42, 0.85);
+  min-width: 180px;
+}
+
+.workspace-context-card span {
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+.workspace-context-card strong {
+  font-size: 13px;
+  color: #f8fafc;
+}
+
+.workspace-context-card small {
+  color: #64748b;
+  text-transform: uppercase;
+  font-size: 10px;
+}
+
+.runtime-notifications {
+  display: flex;
+  gap: 12px;
+  padding: 10px 20px;
+  border-bottom: 1px solid #172033;
+  background: rgba(11, 18, 32, 0.85);
+}
+
+.runtime-notification {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  background: rgba(30, 41, 59, 0.7);
+}
+
+.runtime-notification strong {
+  font-size: 12px;
+  color: #f8fafc;
+}
+
+.runtime-notification span {
+  font-size: 11px;
+  color: #94a3b8;
+}
+
 .view {
   flex: 1;
   overflow: auto;
   padding: 24px;
 }
 
-/* Generic card / section styles for screens */
 h1, h2, h3 { color: #f1f5f9; margin-top: 0; }
 h2 { font-size: 20px; }
 button {
@@ -80,7 +167,6 @@ th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid #1e293b;
 th { color: #94a3b8; font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
 tr:hover td { background: rgba(30, 41, 59, 0.4); }
 
-/* Dashboard card grid */
 .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; margin: 16px 0; }
 .stats > div {
   background: linear-gradient(135deg, #1e293b, #0f172a);

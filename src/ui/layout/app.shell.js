@@ -12,6 +12,7 @@ import {
 
 import { printRuntimeAuditReport } from "../../runtime/audit/runtime.audit.js";
 import { runRuntimeDiagnostics } from "../../runtime/audit/runtime.diagnostics.js";
+import { buildDependencyGraph } from "../../runtime/audit/dependency.graph.js";
 
 export function startCockpit() {
   const root = document.getElementById("app");
@@ -51,6 +52,7 @@ export function startCockpit() {
   try {
     printRuntimeAuditReport();
     runRuntimeDiagnostics();
+    buildDependencyGraph();
   } catch (error) {
     console.warn("runtime audit failed", error);
   }

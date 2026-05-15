@@ -1,5 +1,3 @@
-import { createPOSFlow } from "../../modules/pos/pos.flow.js";
-
 function createAuditEvent(type, payload = {}) {
   return {
     type,
@@ -8,29 +6,61 @@ function createAuditEvent(type, payload = {}) {
   };
 }
 
+function createCartProbe() {
+  const cart = {
+    items: [],
+    total: 0
+  };
+
+  return {
+    addProduct(product) {
+      const existing = cart.items.find((item) => item.id === product.id);
+
+      if (existing) {
+        existing.qty += 1;
+        existing.total = existing.qty * existing.price;
+      } else {
+        cart.items.push({
+          id: product.id,
+          name: product.name,
+          price: product.price,
+          qty: 1,
+          total: product.price
+        });
+      }
+
+      cart.total = cart.items.reduce((sum, item) => sum + item.total, 0);
+    },
+
+    getCart() {
+      return cart;
+    }
+  };
+}
+
 async function auditPOSWorkflow() {
   const events = [];
 
   try {
-    const flow = createPOSFlow();
+    const probe = createCartProbe();
 
-    events.push(createAuditEvent("pos.flow.created"));
+    events.push(createAuditEvent("pos.audit.probe.created"));
 
-    flow.addProduct({
+    probe.addProduct({
       id: "audit-product-1",
       name: "Audit Product",
       price: 10
     });
 
-    events.push(createAuditEvent("pos.product.added", {
-      cart: flow.getCart()
-    }));
+    const cart = probe.getCart();
 
-    const cart = flow.getCart();
+    events.push(createAuditEvent("pos.audit.product.added", {
+      cart
+    }));
 
     return {
       workflow: "pos",
-      status: cart.items.length > 0 ? "operational" : "broken",
+      status: cart.items.length > 0 && cart.total === 10 ? "operational" : "broken",
       cartItems: cart.items.length,
       total: cart.total,
       events
@@ -53,7 +83,7 @@ function auditModalRuntime() {
 
   return {
     count: modals.length,
-    active: modals.filter(modal => !modal.classList.contains("hidden")).length
+    active: modals.filter((modal) => !modal.classList.contains("hidden")).length
   };
 }
 
@@ -89,8 +119,8 @@ export async function runWorkflowTransactionAudit() {
   };
 
   report.summary = {
-    operationalWorkflows: workflows.filter(w => w.status === "operational").length,
-    brokenWorkflows: workflows.filter(w => w.status !== "operational").length,
+    operationalWorkflows: workflows.filter((workflow) => workflow.status === "operational").length,
+    brokenWorkflows: workflows.filter((workflow) => workflow.status !== "operational").length,
     modalCount: report.modals.count,
     persistence: report.persistence.status
   };

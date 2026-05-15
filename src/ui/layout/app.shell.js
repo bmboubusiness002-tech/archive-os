@@ -17,6 +17,7 @@ import { runRecoveryScannerPass } from "../../runtime/audit/recovery.scanner.js"
 import { runLiveExecutionAudit } from "../../runtime/audit/live.execution.audit.js";
 import { runWorkflowTransactionAudit } from "../../runtime/audit/workflow.transaction.audit.js";
 import { runBusinessIntegrityAudit } from "../../runtime/audit/business.integrity.engine.js";
+import { generateRecoveryBacklog } from "../../runtime/audit/recovery.backlog.generator.js";
 
 export function startCockpit() {
   const root = document.getElementById("app");
@@ -63,6 +64,7 @@ export function startCockpit() {
       await runLiveExecutionAudit();
       await runWorkflowTransactionAudit();
       await runBusinessIntegrityAudit();
+      generateRecoveryBacklog();
     }, 250);
   } catch (error) {
     console.warn("runtime audit failed", error);

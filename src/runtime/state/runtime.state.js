@@ -1,6 +1,8 @@
 const runtimeState = new Map();
 const stateListeners = new Map();
 
+window.__ERP_RUNTIME_STATE__ = runtimeState;
+
 export function setRuntimeState(key, value) {
   runtimeState.set(key, value);
 

@@ -1,0 +1,86 @@
+src/runtime/audit/recovery.scanner.js:37:function detectPlaceholderSurfaces() {
+src/runtime/audit/recovery.scanner.js:38:  const placeholders = [];
+src/runtime/audit/recovery.scanner.js:45:      text.includes("placeholder") ||
+src/runtime/audit/recovery.scanner.js:46:      text.includes("todo")
+src/runtime/audit/recovery.scanner.js:48:      placeholders.push({
+src/runtime/audit/recovery.scanner.js:51:        status: "placeholder"
+src/runtime/audit/recovery.scanner.js:56:  return placeholders;
+src/runtime/audit/recovery.scanner.js:65:    placeholders: detectPlaceholderSurfaces()
+src/runtime/audit/recovery.scanner.js:74:    placeholderSurfaces: report.placeholders.length
+src/runtime/audit/runtime.diagnostics.js:34:      issues.push("placeholder-renderer");
+src/runtime/audit/runtime.diagnostics.js:37:    if (source.includes("TODO")) {
+src/runtime/audit/runtime.diagnostics.js:38:      issues.push("todo-renderer");
+src/runtime/audit/runtime.audit.js:10:    placeholders: [],
+src/runtime/audit/runtime.audit.js:50:        loaderSource.includes("placeholder")
+src/runtime/audit/runtime.audit.js:52:        report.placeholders.push(entry);
+src/runtime/audit/runtime.audit.js:76:  console.log("Placeholders:", report.placeholders.length);
+src/runtime/registry/module.registry.js:115:    group("Templates", [item("/admin/templates", "Print Templates", "🖨️")]),
+src/modules/hr/hr.screen.js:53:    <label>Role<input name="role" placeholder="Cashier / Manager / ..." required></label>
+src/modules/hr/hr.screen.js:195:        <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
+src/modules/hr/hr.screen.js:304:      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;">
+src/modules/operations/purchase.screen.js:20:      <input id="qty" type="number" placeholder="Qty"/>
+src/modules/operations/purchase.screen.js:21:      <input id="cost" type="number" placeholder="Cost"/>
+src/modules/repair/diagnostics.screen.js:69:      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:8px;margin-top:14px;">
+src/modules/repair/board.screen.js:24:    <div style="display:grid;grid-template-columns:repeat(${COLUMNS.length},1fr);gap:10px;">
+src/modules/repair/portal.screen.js:9:      <label>Ticket code (e.g. RT-2604-1234)<input id="pp-code" placeholder="RT-…" autofocus></label>
+src/modules/repair/parts.screen.js:85:      <label>Serial or IMEI<input id="sn-input" placeholder="Enter serial / IMEI…" autofocus></label>
+src/modules/admin/admin.screen.js:1:// Admin: Users, Roles, Branches, Print Templates, System info, Privacy, Terms.
+src/modules/admin/admin.screen.js:100:// ===== PRINT TEMPLATES =====
+src/modules/admin/admin.screen.js:101:const TEMPLATE_TYPES = ["invoice", "receipt", "quotation", "repair_invoice", "purchase_order"];
+src/modules/admin/admin.screen.js:103:export async function renderTemplates(view) { await drawT(view); }
+src/modules/admin/admin.screen.js:105:  const list = await db.print_templates.toArray();
+src/modules/admin/admin.screen.js:108:      { label: "Templates", value: list.length },
+src/modules/admin/admin.screen.js:111:    ${panel("Print templates", list.length ? `
+src/modules/admin/admin.screen.js:128:    ` : emptyState("No templates yet."), `<button id="new-t" style="background:#22c55e;">+ Add template</button>`)}
+src/modules/admin/admin.screen.js:130:  view.querySelector("#new-t").onclick = () => modal("Add print template", `
+src/modules/admin/admin.screen.js:133:      <select name="type">${TEMPLATE_TYPES.map(t => `<option>${t}</option>`).join("")}</select>
+src/modules/admin/admin.screen.js:135:    <label>Header text<textarea name="header" rows="3" placeholder="Company name, address, tax #"></textarea></label>
+src/modules/admin/admin.screen.js:136:    <label>Footer text<textarea name="footer" rows="2" placeholder="Thank you for your business!"></textarea></label>
+src/modules/admin/admin.screen.js:138:    await db.print_templates.add({ name:d.name, type:d.type, header:d.header, footer:d.footer });
+src/modules/admin/admin.screen.js:142:    const t = await db.print_templates.get(Number(b.dataset.prev));
+src/modules/admin/admin.screen.js:156:    await db.print_templates.delete(Number(b.dataset.del));
+src/modules/pos/pos.db.js:54:  print_templates: "++id, name, type",
+src/modules/pos/pos.screen.js:21:          <input id="pos-search" placeholder="🔎 Search products…" />
+src/modules/inventory/products.screen.js:85:      <input id="name" placeholder="Name">
+src/modules/inventory/products.screen.js:86:      <input id="cost" type="number" placeholder="Cost">
+src/modules/inventory/products.screen.js:87:      <input id="price" type="number" placeholder="Price">
+src/modules/finance/finance.screen.js:177:    <label>Reference<input name="ref" placeholder="INV-001 / SAL-002"></label>
+src/modules/finance/finance.screen.js:178:    <label>Account<input name="account" placeholder="Sales / Cash / ..." required></label>
+src/modules/finance/chart.accounts.screen.js:18:        <input id="code" placeholder="Code" />
+src/modules/finance/chart.accounts.screen.js:19:        <input id="name" placeholder="Name" />
+src/modules/finance/expenses.screen.js:23:      <input id="amount" type="number" placeholder="Amount"/><br/><br/>
+src/modules/finance/expenses.screen.js:24:      <input id="category" placeholder="Category"/><br/><br/>
+src/modules/finance/expenses.screen.js:25:      <input id="note" placeholder="Note"/><br/><br/>
+src/modules/finance/journal.entry.screen.js:32:        <input data-i="${i}" class="account" placeholder="Account" />
+src/modules/finance/journal.entry.screen.js:33:        <input data-i="${i}" class="debit" placeholder="Debit" />
+src/modules/finance/journal.entry.screen.js:34:        <input data-i="${i}" class="credit" placeholder="Credit" />
+src/modules/sales/payments.screen.js:48:      <label>Note<input name="note" placeholder="optional"></label>
+src/modules/intelligence/scenarios.screen.js:13:      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;">
+src/modules/intelligence/scenarios.screen.js:50:      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;">
+src/ui/styles/finance.dashboard.css:12:  grid-template-columns: repeat(2, 1fr);
+src/ui/styles/layout.css:14:  grid-template-columns: 260px 1fr;
+src/ui/styles/layout.css:170:.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; margin: 16px 0; }
+src/ui/styles/balance.sheet.css:8:  grid-template-columns: 1fr 1fr 1fr;
+src/ui/styles/reports.css:19:  grid-template-columns: repeat(2, 1fr);
+src/ui/styles/inventory.css:9:  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+src/ui/styles/inventory.css:107:    grid-template-columns: 1fr;
+src/ui/styles/pos.css:4:  grid-template-columns: 1fr 360px;
+src/ui/styles/pos.css:21:  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+src/ui/styles/pos.css:121:  .pos-wrap { grid-template-columns: 1fr; }
+src/ui/styles/customers.css:35:  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+src/ui/styles/dashboard.css:8:  grid-template-columns: repeat(4, 1fr);
+src/ui/styles/cockpit.css:93:  grid-template-columns: repeat(3, 1fr);
+src/ui/layout/sidebar.js:18:      <input class="sb-search" placeholder="🔎  Search…" />
+src/ui/layout/layout.engine.js:49:  renderUsers, renderAdminRoles, renderBranches, renderTemplates,
+src/ui/layout/layout.engine.js:133:  "/admin/templates":              { title: "Print Templates",     load: renderTemplates, domain: "admin" },
+src/ui/layout/layout.engine.js:170:      console.warn("screen failed, showing placeholder:", error);
+src/ui/modals/payment.modal.v2.js:15:      <input id="cash" placeholder="Cash" type="number"/>
+src/ui/modals/payment.modal.v2.js:16:      <input id="card" placeholder="Card" type="number"/>
+src/ui/modals/payment.modal.v2.js:17:      <input id="credit" placeholder="Credit" type="number"/>
+src/transactions/payment.tx.js:8:// ✅ TEMP LOCAL ACCOUNTS (SAFE STUB)
+src/intelligence/negotiation/negotiation.learning.js:12:    if (!m || m.attempts === 0) {
+src/intelligence/negotiation/negotiation.learning.js:20:    const rate = m.successes / m.attempts;
+src/intelligence/pricing/pricingMemory.repo.js:39:      attempts: 0,
+src/intelligence/pricing/pricingMemory.repo.js:48:  m.attempts++;
+src/intelligence/pricing/pricingLearning.js:13:    if (!m || m.attempts === 0) {
+src/intelligence/pricing/pricingLearning.js:27:      successRate: safeDivide(m.successes, m.attempts),

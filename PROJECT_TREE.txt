@@ -1,0 +1,600 @@
+.
+├── DOMAIN_AUDIT.txt
+├── INTELLIGENCE_AUDIT.txt
+├── MODULES_AUDIT.txt
+├── PROJECT_TREE.txt
+├── UI_AUDIT.txt
+├── docs
+│   ├── CANONICAL_DOMAIN_MAP.md
+│   ├── CANONICAL_MODULE_AUDIT.md
+│   ├── CANONICAL_SYSTEM_GUIDE.md
+│   ├── CORE_RUNTIME_ANALYSIS.md
+│   ├── FINANCE_CORE_ANALYSIS.md
+│   ├── INTELLIGENCE_ORCHESTRATOR_ANALYSIS.md
+│   ├── INVENTORY_CORE_ANALYSIS.md
+│   ├── POS_RUNTIME_ANALYSIS.md
+│   ├── RUNTIME_KERNEL_ANALYSIS.md
+│   ├── RUNTIME_OWNERSHIP_AUDIT.md
+│   └── architecture
+│       └── RUNTIME_V2_PLAN.md
+├── domains
+├── favicon.ico
+├── index.html
+├── package-lock.json
+├── package.json
+├── packages
+│   ├── contracts
+│   │   ├── package.json
+│   │   └── src
+│   │       ├── events
+│   │       │   └── runtime-event.ts
+│   │       ├── index.ts
+│   │       └── kernel
+│   │           ├── runtime-context.ts
+│   │           └── runtime-module.ts
+│   ├── event-bus
+│   │   └── src
+│   │       ├── contracts
+│   │       │   └── runtime-event.ts
+│   │       ├── core
+│   │       │   └── event-bus.ts
+│   │       └── runtime-operational-event-bus.ts
+│   ├── runtime-core
+│   │   ├── package.json
+│   │   └── src
+│   │       ├── agents
+│   │       │   ├── adaptive-runtime-agents.ts
+│   │       │   ├── autonomous-cognitive-agents-network.ts
+│   │       │   └── autonomous-operational-agents-system.ts
+│   │       ├── ai
+│   │       │   ├── ai-operational-orchestration.ts
+│   │       │   ├── enterprise-ai-runtime-services.ts
+│   │       │   ├── event-intelligence.ts
+│   │       │   ├── operational-memory-index.ts
+│   │       │   ├── real-ai-reasoning-runtime.ts
+│   │       │   ├── real-operational-ai-execution.ts
+│   │       │   ├── real-operational-ai-runtime.ts
+│   │       │   ├── runtime-context-graph.ts
+│   │       │   └── workflow-orchestrator.ts
+│   │       ├── analytics
+│   │       │   └── real-runtime-analytics.ts
+│   │       ├── api
+│   │       │   └── runtime-api-gateway.ts
+│   │       ├── automation
+│   │       │   ├── real-runtime-automation.ts
+│   │       │   └── runtime-cognitive-automation-mesh.ts
+│   │       ├── autonomous
+│   │       │   ├── autonomous-operational-loops.ts
+│   │       │   └── autonomous-operational-runtime.ts
+│   │       ├── bootstrap
+│   │       │   ├── real-runtime-bootstrap.ts
+│   │       │   └── runtime-orchestrator.ts
+│   │       ├── civilization
+│   │       │   └── autonomous-operational-civilization-layer.ts
+│   │       ├── cognition
+│   │       │   └── operational-cognitive-layer.ts
+│   │       ├── contracts
+│   │       │   └── runtime-module.ts
+│   │       ├── convergence
+│   │       │   ├── executable-operational-graph.ts
+│   │       │   ├── persistent-runtime-state.ts
+│   │       │   ├── runtime-composition-graph.ts
+│   │       │   ├── runtime-execution-pipeline.ts
+│   │       │   └── unified-runtime-registry.ts
+│   │       ├── coordination
+│   │       │   └── operational-cognitive-coordination.ts
+│   │       ├── database
+│   │       │   └── enterprise-runtime-database-layer.ts
+│   │       ├── decision
+│   │       │   └── runtime-cognitive-decision-engine.ts
+│   │       ├── delivery
+│   │       │   └── runtime-production-delivery.ts
+│   │       ├── deployment
+│   │       │   └── enterprise-deployment-fabric.ts
+│   │       ├── domains
+│   │       │   ├── executable-runtime-domains.ts
+│   │       │   ├── real-business-runtime-domains.ts
+│   │       │   └── runtime-domain-manifest.ts
+│   │       ├── ecosystem
+│   │       │   └── production-runtime-ecosystem.ts
+│   │       ├── entities
+│   │       │   ├── operational-entity-graph.ts
+│   │       │   ├── real-runtime-entity-engine.ts
+│   │       │   └── runtime-entity-lifecycle.ts
+│   │       ├── evolution
+│   │       │   ├── runtime-evolution-engine.ts
+│   │       │   ├── self-evolving-runtime-intelligence.ts
+│   │       │   └── self-sustaining-runtime-evolution.ts
+│   │       ├── execution
+│   │       │   ├── cognitive-runtime-execution-graph.ts
+│   │       │   ├── real-runtime-domain-execution.ts
+│   │       │   ├── real-runtime-execution-core.ts
+│   │       │   └── runtime-execution-engine.ts
+│   │       ├── fabric
+│   │       │   ├── runtime-fabric-activation.ts
+│   │       │   └── unified-cognitive-runtime-fabric.ts
+│   │       ├── governance
+│   │       │   ├── adaptive-cognitive-governance.ts
+│   │       │   └── production-runtime-governance.ts
+│   │       ├── graph
+│   │       │   ├── live-operational-graph-engine.ts
+│   │       │   └── runtime-graph-wiring.ts
+│   │       ├── hydration
+│   │       │   └── runtime-hydration-engine.ts
+│   │       ├── index.ts
+│   │       ├── infrastructure
+│   │       │   └── production-runtime-infrastructure.ts
+│   │       ├── integration
+│   │       │   ├── runtime-integration-bus.ts
+│   │       │   └── runtime-integration-layer.ts
+│   │       ├── intelligence
+│   │       │   ├── cognitive-execution-intelligence.ts
+│   │       │   ├── hyper-predictive-operational-intelligence.ts
+│   │       │   ├── real-operational-intelligence.ts
+│   │       │   ├── runtime-intelligence-engine.ts
+│   │       │   └── runtime-intelligence-execution.ts
+│   │       ├── interactions
+│   │       │   └── real-runtime-interaction-engine.ts
+│   │       ├── kernel
+│   │       │   ├── cognitive-runtime-kernel-fusion.ts
+│   │       │   ├── runtime-context.ts
+│   │       │   ├── runtime-kernel.ts
+│   │       │   ├── runtime-lifecycle.ts
+│   │       │   └── runtime-services.ts
+│   │       ├── knowledge
+│   │       │   ├── operational-knowledge-graph.ts
+│   │       │   └── real-operational-knowledge-runtime.ts
+│   │       ├── learning
+│   │       │   └── runtime-learning-layer.ts
+│   │       ├── ledger
+│   │       │   ├── operational-ledger-runtime.ts
+│   │       │   └── real-ledger-accounting-system.ts
+│   │       ├── materialization
+│   │       │   └── runtime-wiring-engine.ts
+│   │       ├── memory
+│   │       │   └── semantic-runtime-memory.ts
+│   │       ├── mesh
+│   │       │   └── cognitive-runtime-mesh.ts
+│   │       ├── mutations
+│   │       │   └── real-runtime-mutation-engine.ts
+│   │       ├── network
+│   │       │   └── live-operational-runtime-network.ts
+│   │       ├── observability
+│   │       │   ├── enterprise-observability-stack.ts
+│   │       │   └── operational-runtime-observability.ts
+│   │       ├── orchestration
+│   │       │   ├── autonomous-runtime-orchestrator.ts
+│   │       │   └── real-event-orchestration.ts
+│   │       ├── orchestrator
+│   │       │   └── unified-runtime-orchestrator.ts
+│   │       ├── registry
+│   │       │   ├── module-registry.ts
+│   │       │   └── runtime-module-manifest.ts
+│   │       ├── replay
+│   │       │   └── real-runtime-event-replay.ts
+│   │       ├── runtime
+│   │       │   └── runtime-operationalization-layer.ts
+│   │       ├── saas
+│   │       │   └── saas-runtime-delivery.ts
+│   │       ├── security
+│   │       │   ├── operational-runtime-security-layer.ts
+│   │       │   └── runtime-identity-access-system.ts
+│   │       ├── services
+│   │       │   └── real-runtime-services.ts
+│   │       ├── simulation
+│   │       │   └── cognitive-runtime-simulation-layer.ts
+│   │       ├── state
+│   │       │   └── runtime-state-materialization.ts
+│   │       ├── streaming
+│   │       │   └── enterprise-event-streaming-fabric.ts
+│   │       ├── sync
+│   │       │   └── distributed-runtime-synchronization.ts
+│   │       ├── synthesis
+│   │       │   └── runtime-synthesis-engine.ts
+│   │       ├── telemetry
+│   │       │   ├── module-health.ts
+│   │       │   ├── runtime-operational-telemetry.ts
+│   │       │   └── runtime-telemetry.ts
+│   │       ├── tenancy
+│   │       │   └── multi-tenant-runtime-architecture.ts
+│   │       ├── twins
+│   │       │   └── predictive-operational-twin-system.ts
+│   │       ├── workflows
+│   │       │   ├── executable-operational-workflows.ts
+│   │       │   ├── finance-runtime-workflow.ts
+│   │       │   ├── pos-runtime-workflow.ts
+│   │       │   ├── real-workflow-runtime-execution.ts
+│   │       │   └── repairflow-runtime-workflow.ts
+│   │       └── workspaces
+│   │           └── live-runtime-workspaces.ts
+│   ├── runtime-events
+│   │   ├── package.json
+│   │   └── src
+│   │       ├── bus
+│   │       │   └── runtime-event-bus.ts
+│   │       └── index.ts
+│   ├── state-engine
+│   │   └── src
+│   │       ├── archive
+│   │       │   ├── archive-replay-engine.ts
+│   │       │   ├── archive-timeline.ts
+│   │       │   └── runtime-time-machine.ts
+│   │       ├── business
+│   │       │   └── real-business-state.ts
+│   │       ├── dexie
+│   │       │   └── real-dexie-runtime-storage.ts
+│   │       ├── engine
+│   │       │   └── state-engine.ts
+│   │       ├── persistence
+│   │       │   └── dexie-adapter.ts
+│   │       ├── projections
+│   │       │   └── runtime-projection-engine.ts
+│   │       ├── recovery
+│   │       │   └── runtime-recovery.ts
+│   │       └── runtime
+│   │           └── runtime-data-layer.ts
+│   └── ui-system
+│       ├── package.json
+│       └── src
+│           ├── cognitive
+│           │   └── cognitive-operational-ui.ts
+│           ├── contracts
+│           │   └── runtime-widget.ts
+│           ├── index.ts
+│           ├── layouts
+│           │   └── adaptive-layout-engine.ts
+│           ├── navigation
+│           │   └── runtime-navigation.ts
+│           └── shell
+│               ├── runtime-shell.tsx
+│               └── shell-composition-engine.ts
+├── public
+│   └── opengraph.jpg
+├── read-models
+├── runtime
+├── server.js
+├── src
+│   ├── accounting
+│   │   ├── chartOfAccounts.js
+│   │   ├── journal.generator.js
+│   │   ├── ledger.engine.js
+│   │   ├── legacy
+│   │   │   ├── accounts.js
+│   │   │   ├── ledger-engine.js
+│   │   │   ├── ledger-engine.test.js
+│   │   │   └── ledger-types.js
+│   │   └── posting.engine.js
+│   ├── analytics
+│   │   ├── kpi.engine.js
+│   │   ├── margin.engine.js
+│   │   └── trend.engine.js
+│   ├── app
+│   │   ├── seed
+│   │   │   └── seed.js
+│   │   ├── state
+│   │   │   └── store.js
+│   │   ├── testing
+│   │   │   └── autoTest.js
+│   │   └── usecases
+│   │       ├── createExpense.js
+│   │       ├── createPurchase.js
+│   │       ├── createReceipt.js
+│   │       ├── createRepair.js
+│   │       ├── createSale.js
+│   │       ├── createSale.test.js
+│   │       ├── reconcilePending.js
+│   │       └── recordExpense.js
+│   ├── bootstrap.js
+│   ├── core
+│   │   ├── accounting
+│   │   │   ├── account.lookup.js
+│   │   │   ├── account.map.js
+│   │   │   ├── account.service.js
+│   │   │   ├── accounting.engine.js
+│   │   │   ├── balance.sheet.engine.js
+│   │   │   ├── chartOfAccounts.js
+│   │   │   ├── period.lock.js
+│   │   │   ├── report.engine.js
+│   │   │   └── trend.engine.js
+│   │   ├── action.bus.js
+│   │   ├── adaptive
+│   │   │   ├── adaptive.engine.js
+│   │   │   └── profile.engine.js
+│   │   ├── audit
+│   │   │   ├── audit.repo.js
+│   │   │   └── audit.service.js
+│   │   ├── backup
+│   │   │   └── backup.engine.js
+│   │   ├── buy
+│   │   │   └── buy.engine.js
+│   │   ├── confidence
+│   │   │   └── confidence.engine.js
+│   │   ├── control
+│   │   │   └── control.engine.js
+│   │   ├── decision
+│   │   │   └── decision.engine.js
+│   │   ├── explain
+│   │   │   └── explain.engine.js
+│   │   ├── forecast
+│   │   │   └── forecast.engine.js
+│   │   ├── ids
+│   │   │   └── uuid.js
+│   │   ├── learning
+│   │   │   └── learning.engine.js
+│   │   ├── memory
+│   │   │   ├── memory.engine.js
+│   │   │   └── memory.repo.js
+│   │   ├── money
+│   │   │   └── money.js
+│   │   ├── realtime
+│   │   │   ├── eventBus.js
+│   │   │   ├── events.js
+│   │   │   └── realtime.engine.js
+│   │   ├── simulation
+│   │   │   └── simulation.engine.js
+│   │   ├── strategy
+│   │   │   └── strategy.engine.js
+│   │   ├── ui
+│   │   │   └── safe-dom.js
+│   │   └── validation
+│   │       └── validators.js
+│   ├── domain
+│   │   ├── account
+│   │   │   ├── account.model.js
+│   │   │   └── account.repo.js
+│   │   ├── adaptive
+│   │   │   └── profile.repo.js
+│   │   ├── customer
+│   │   │   ├── customer.model.js
+│   │   │   ├── customer.repo.js
+│   │   │   └── customer.service.js
+│   │   ├── decision
+│   │   │   └── decision.repo.js
+│   │   ├── expense
+│   │   │   ├── expense.model.js
+│   │   │   ├── expense.repo.js
+│   │   │   └── expense.service.js
+│   │   ├── ledger
+│   │   │   ├── ledger.repo.js
+│   │   │   └── ledger.service.js
+│   │   ├── partner
+│   │   │   ├── partner.model.js
+│   │   │   ├── partner.repo.js
+│   │   │   └── partner.service.js
+│   │   ├── product
+│   │   │   ├── product.model.js
+│   │   │   ├── product.repo.js
+│   │   │   └── product.service.js
+│   │   ├── receipt
+│   │   │   ├── receipt.model.js
+│   │   │   └── receipt.repo.js
+│   │   ├── repair
+│   │   │   ├── repair.model.js
+│   │   │   ├── repair.repo.js
+│   │   │   └── repair.service.js
+│   │   ├── reports
+│   │   │   ├── cash.intelligence.js
+│   │   │   └── reports.service.js
+│   │   ├── sale
+│   │   │   ├── sale.model.js
+│   │   │   ├── sale.repo.js
+│   │   │   └── sale.service.js
+│   │   └── stock
+│   │       ├── stock.balance.repo.js
+│   │       ├── stock.balance.service.js
+│   │       ├── stock.model.js
+│   │       ├── stock.repo.js
+│   │       └── stock.service.js
+│   ├── events
+│   │   ├── event.factory.js
+│   │   ├── event.pipeline.js
+│   │   ├── event.store.js
+│   │   ├── event.stream.js
+│   │   ├── event.types.js
+│   │   ├── eventBus.core.js
+│   │   └── eventBus.js
+│   ├── infra
+│   │   ├── db
+│   │   │   ├── db.js
+│   │   │   ├── db.test.js
+│   │   │   ├── migrations.js
+│   │   │   └── tables.js
+│   │   └── repos
+│   │       └── base.repo.js
+│   ├── intelligence
+│   │   ├── customer
+│   │   │   └── customer.intelligence.js
+│   │   ├── finance
+│   │   │   ├── cashflow.engine.js
+│   │   │   └── financial.engine.js
+│   │   ├── intelligence.orchestrator.js
+│   │   ├── inventory
+│   │   │   └── inventory.engine.js
+│   │   ├── legacy
+│   │   │   └── insight.engine.js
+│   │   ├── negotiation
+│   │   │   ├── negotiation.engine.js
+│   │   │   ├── negotiation.learning.js
+│   │   │   └── negotiation.rules.js
+│   │   ├── pricing
+│   │   │   ├── SmartPricingEngine.js
+│   │   │   ├── index.js
+│   │   │   ├── pricingLearning.js
+│   │   │   ├── pricingMemory.repo.js
+│   │   │   ├── pricingRules.js
+│   │   │   └── pricingSignals.js
+│   │   └── product
+│   │       ├── margin.analyzer.js
+│   │       ├── margin.engine.js
+│   │       └── margin.rules.js
+│   ├── modules
+│   │   ├── _shared
+│   │   │   └── ui.js
+│   │   ├── admin
+│   │   │   └── admin.screen.js
+│   │   ├── crm
+│   │   │   └── crm.screen.js
+│   │   ├── customers
+│   │   │   ├── customer.profile.js
+│   │   │   ├── customer.profile.screen.js
+│   │   │   ├── customers.analytics.screen.js
+│   │   │   └── customers.screen.js
+│   │   ├── dashboard
+│   │   │   └── dashboard.screen.js
+│   │   ├── finance
+│   │   │   ├── balance.sheet.screen.js
+│   │   │   ├── chart.accounts.screen.js
+│   │   │   ├── expenses.screen.js
+│   │   │   ├── finance.dashboard.screen.js
+│   │   │   ├── finance.screen.js
+│   │   │   ├── financial.reports.screen.js
+│   │   │   ├── journal.entry.screen.js
+│   │   │   ├── payment.analytics.screen.js
+│   │   │   ├── reports.screen.js
+│   │   │   └── trends.screen.js
+│   │   ├── hr
+│   │   │   └── hr.screen.js
+│   │   ├── intelligence
+│   │   │   ├── predictive.screen.js
+│   │   │   ├── scenarios.screen.js
+│   │   │   └── strategy.screen.js
+│   │   ├── inventory
+│   │   │   ├── extras.screen.js
+│   │   │   ├── inventory.screen.js
+│   │   │   └── products.screen.js
+│   │   ├── manufacturing
+│   │   │   └── manufacturing.screen.js
+│   │   ├── operations
+│   │   │   ├── purchase.screen.js
+│   │   │   ├── receipts.screen.js
+│   │   │   ├── repair.screen.js
+│   │   │   └── sales.screen.js
+│   │   ├── pos
+│   │   │   ├── cart.engine.js
+│   │   │   ├── payment.flow.js
+│   │   │   ├── pos.controller.js
+│   │   │   ├── pos.db.js
+│   │   │   ├── pos.events.js
+│   │   │   ├── pos.flow.js
+│   │   │   ├── pos.screen.js
+│   │   │   ├── returns.screen.js
+│   │   │   └── sessions.screen.js
+│   │   ├── purchase
+│   │   │   ├── orders.screen.js
+│   │   │   ├── returns.screen.js
+│   │   │   └── suppliers.screen.js
+│   │   ├── repair
+│   │   │   ├── billing.screen.js
+│   │   │   ├── board.screen.js
+│   │   │   ├── diagnostics.screen.js
+│   │   │   ├── parts.screen.js
+│   │   │   ├── portal.screen.js
+│   │   │   ├── repair.db.js
+│   │   │   └── tickets.screen.js
+│   │   ├── reports
+│   │   │   └── reports.screen.js
+│   │   └── sales
+│   │       ├── history.screen.js
+│   │       ├── invoices.screen.js
+│   │       ├── payments.screen.js
+│   │       └── quotations.screen.js
+│   ├── relations
+│   │   ├── customer.engine.js
+│   │   └── supplier.engine.js
+│   ├── runtime
+│   │   ├── adapters
+│   │   │   └── pos.runtime.adapter.js
+│   │   ├── audit
+│   │   │   ├── business.integrity.engine.js
+│   │   │   ├── dependency.graph.js
+│   │   │   ├── live.execution.audit.js
+│   │   │   ├── recovery.backlog.generator.js
+│   │   │   ├── recovery.scanner.js
+│   │   │   ├── runtime.audit.js
+│   │   │   ├── runtime.diagnostics.js
+│   │   │   └── workflow.transaction.audit.js
+│   │   ├── recovery
+│   │   │   └── runtime.recovery.map.js
+│   │   ├── registry
+│   │   │   ├── module.registry.js
+│   │   │   └── route.registry.js
+│   │   ├── state
+│   │   │   └── runtime.state.js
+│   │   ├── telemetry
+│   │   │   └── runtime.telemetry.js
+│   │   └── workspace
+│   │       └── workspace.shell.js
+│   ├── shared
+│   │   ├── constants.js
+│   │   ├── format.js
+│   │   └── helpers.js
+│   ├── state
+│   │   ├── cash.state.js
+│   │   ├── customer.state.js
+│   │   └── stock.state.js
+│   ├── transactions
+│   │   ├── audit.log.js
+│   │   ├── expense.tx.js
+│   │   ├── payment.tx.js
+│   │   ├── purchase.tx.js
+│   │   ├── sales.tx.js
+│   │   └── stock.tx.js
+│   └── ui
+│       ├── components
+│       │   ├── alert.banner.js
+│       │   ├── base.component.js
+│       │   ├── kpi.card.js
+│       │   ├── panel.manager.js
+│       │   ├── table.js
+│       │   └── timeline.js
+│       ├── experience
+│       │   ├── ux.engine.js
+│       │   ├── ux.orchestrator.js
+│       │   ├── ux.rules.js
+│       │   └── ux.signals.js
+│       ├── layout
+│       │   ├── app.layout.js
+│       │   ├── app.shell.js
+│       │   ├── layout.engine.js
+│       │   ├── sidebar.js
+│       │   └── topbar.js
+│       ├── legacy
+│       │   ├── master.dashboard.screen.js
+│       │   └── partners.screen.js
+│       ├── modals
+│       │   ├── cart.modal.js
+│       │   ├── event.detail.modal.js
+│       │   ├── modal.manager.js
+│       │   ├── payment.modal.js
+│       │   ├── payment.modal.v2.js
+│       │   └── receipt.modal.js
+│       ├── screens
+│       │   ├── dashboard.screen.js
+│       │   ├── intelligence.screen.js
+│       │   ├── operations.screen.js
+│       │   ├── people.screen.js
+│       │   ├── system.screen.js
+│       │   └── transactions.screen.js
+│       └── styles
+│           ├── accounting.css
+│           ├── balance.sheet.css
+│           ├── cockpit.css
+│           ├── components.css
+│           ├── customers.analytics.css
+│           ├── customers.css
+│           ├── dashboard.css
+│           ├── finance.dashboard.css
+│           ├── financial.reports.css
+│           ├── inventory.css
+│           ├── layout.css
+│           ├── modal.css
+│           ├── payment.analytics.css
+│           ├── pos.css
+│           ├── reports.css
+│           ├── sidebar.css
+│           ├── theme.css
+│           └── trends.css
+├── structure_final.txt
+└── خدم سرفر.txt
+
+187 directories, 411 files

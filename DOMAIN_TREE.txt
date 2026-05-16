@@ -1,0 +1,49 @@
+src/domain
+├── account
+│   ├── account.model.js
+│   └── account.repo.js
+├── adaptive
+│   └── profile.repo.js
+├── customer
+│   ├── customer.model.js
+│   ├── customer.repo.js
+│   └── customer.service.js
+├── decision
+│   └── decision.repo.js
+├── expense
+│   ├── expense.model.js
+│   ├── expense.repo.js
+│   └── expense.service.js
+├── ledger
+│   ├── ledger.repo.js
+│   └── ledger.service.js
+├── partner
+│   ├── partner.model.js
+│   ├── partner.repo.js
+│   └── partner.service.js
+├── product
+│   ├── product.model.js
+│   ├── product.repo.js
+│   └── product.service.js
+├── receipt
+│   ├── receipt.model.js
+│   └── receipt.repo.js
+├── repair
+│   ├── repair.model.js
+│   ├── repair.repo.js
+│   └── repair.service.js
+├── reports
+│   ├── cash.intelligence.js
+│   └── reports.service.js
+├── sale
+│   ├── sale.model.js
+│   ├── sale.repo.js
+│   └── sale.service.js
+└── stock
+    ├── stock.balance.repo.js
+    ├── stock.balance.service.js
+    ├── stock.model.js
+    ├── stock.repo.js
+    └── stock.service.js
+
+14 directories, 33 files

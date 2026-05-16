@@ -1,0 +1,601 @@
+[4.0K]  .
+├── [1.1K]  DOMAIN_AUDIT.txt
+├── [ 812]  INTELLIGENCE_AUDIT.txt
+├── [2.0K]  MODULES_AUDIT.txt
+├── [ 28K]  PROJECT_TREE.txt
+├── [   0]  PROJECT_TREE_SIZES.txt
+├── [1.4K]  UI_AUDIT.txt
+├── [4.0K]  docs
+│   ├── [5.9K]  CANONICAL_DOMAIN_MAP.md
+│   ├── [4.4K]  CANONICAL_MODULE_AUDIT.md
+│   ├── [5.5K]  CANONICAL_SYSTEM_GUIDE.md
+│   ├── [7.6K]  CORE_RUNTIME_ANALYSIS.md
+│   ├── [6.6K]  FINANCE_CORE_ANALYSIS.md
+│   ├── [7.0K]  INTELLIGENCE_ORCHESTRATOR_ANALYSIS.md
+│   ├── [6.7K]  INVENTORY_CORE_ANALYSIS.md
+│   ├── [5.4K]  POS_RUNTIME_ANALYSIS.md
+│   ├── [5.1K]  RUNTIME_KERNEL_ANALYSIS.md
+│   ├── [5.5K]  RUNTIME_OWNERSHIP_AUDIT.md
+│   └── [4.0K]  architecture
+│       └── [1.4K]  RUNTIME_V2_PLAN.md
+├── [4.0K]  domains
+├── [   0]  favicon.ico
+├── [2.5K]  index.html
+├── [ 191]  package-lock.json
+├── [ 188]  package.json
+├── [4.0K]  packages
+│   ├── [4.0K]  contracts
+│   │   ├── [ 124]  package.json
+│   │   └── [4.0K]  src
+│   │       ├── [4.0K]  events
+│   │       │   └── [ 125]  runtime-event.ts
+│   │       ├── [ 120]  index.ts
+│   │       └── [4.0K]  kernel
+│   │           ├── [ 235]  runtime-context.ts
+│   │           └── [ 217]  runtime-module.ts
+│   ├── [4.0K]  event-bus
+│   │   └── [4.0K]  src
+│   │       ├── [4.0K]  contracts
+│   │       │   └── [  95]  runtime-event.ts
+│   │       ├── [4.0K]  core
+│   │       │   └── [ 547]  event-bus.ts
+│   │       └── [ 763]  runtime-operational-event-bus.ts
+│   ├── [4.0K]  runtime-core
+│   │   ├── [ 242]  package.json
+│   │   └── [4.0K]  src
+│   │       ├── [4.0K]  agents
+│   │       │   ├── [ 582]  adaptive-runtime-agents.ts
+│   │       │   ├── [ 828]  autonomous-cognitive-agents-network.ts
+│   │       │   └── [ 745]  autonomous-operational-agents-system.ts
+│   │       ├── [4.0K]  ai
+│   │       │   ├── [ 844]  ai-operational-orchestration.ts
+│   │       │   ├── [ 943]  enterprise-ai-runtime-services.ts
+│   │       │   ├── [ 471]  event-intelligence.ts
+│   │       │   ├── [ 444]  operational-memory-index.ts
+│   │       │   ├── [ 878]  real-ai-reasoning-runtime.ts
+│   │       │   ├── [ 910]  real-operational-ai-execution.ts
+│   │       │   ├── [ 945]  real-operational-ai-runtime.ts
+│   │       │   ├── [ 357]  runtime-context-graph.ts
+│   │       │   └── [ 331]  workflow-orchestrator.ts
+│   │       ├── [4.0K]  analytics
+│   │       │   └── [ 675]  real-runtime-analytics.ts
+│   │       ├── [4.0K]  api
+│   │       │   └── [ 804]  runtime-api-gateway.ts
+│   │       ├── [4.0K]  automation
+│   │       │   ├── [ 709]  real-runtime-automation.ts
+│   │       │   └── [ 945]  runtime-cognitive-automation-mesh.ts
+│   │       ├── [4.0K]  autonomous
+│   │       │   ├── [ 783]  autonomous-operational-loops.ts
+│   │       │   └── [ 748]  autonomous-operational-runtime.ts
+│   │       ├── [4.0K]  bootstrap
+│   │       │   ├── [ 744]  real-runtime-bootstrap.ts
+│   │       │   └── [ 595]  runtime-orchestrator.ts
+│   │       ├── [4.0K]  civilization
+│   │       │   └── [ 784]  autonomous-operational-civilization-layer.ts
+│   │       ├── [4.0K]  cognition
+│   │       │   └── [ 612]  operational-cognitive-layer.ts
+│   │       ├── [4.0K]  contracts
+│   │       │   └── [ 134]  runtime-module.ts
+│   │       ├── [4.0K]  convergence
+│   │       │   ├── [ 641]  executable-operational-graph.ts
+│   │       │   ├── [ 628]  persistent-runtime-state.ts
+│   │       │   ├── [ 627]  runtime-composition-graph.ts
+│   │       │   ├── [ 597]  runtime-execution-pipeline.ts
+│   │       │   └── [ 723]  unified-runtime-registry.ts
+│   │       ├── [4.0K]  coordination
+│   │       │   └── [ 929]  operational-cognitive-coordination.ts
+│   │       ├── [4.0K]  database
+│   │       │   └── [ 960]  enterprise-runtime-database-layer.ts
+│   │       ├── [4.0K]  decision
+│   │       │   └── [ 974]  runtime-cognitive-decision-engine.ts
+│   │       ├── [4.0K]  delivery
+│   │       │   └── [ 830]  runtime-production-delivery.ts
+│   │       ├── [4.0K]  deployment
+│   │       │   └── [ 936]  enterprise-deployment-fabric.ts
+│   │       ├── [4.0K]  domains
+│   │       │   ├── [1.1K]  executable-runtime-domains.ts
+│   │       │   ├── [1.1K]  real-business-runtime-domains.ts
+│   │       │   └── [1.5K]  runtime-domain-manifest.ts
+│   │       ├── [4.0K]  ecosystem
+│   │       │   └── [ 944]  production-runtime-ecosystem.ts
+│   │       ├── [4.0K]  entities
+│   │       │   ├── [ 667]  operational-entity-graph.ts
+│   │       │   ├── [ 732]  real-runtime-entity-engine.ts
+│   │       │   └── [ 828]  runtime-entity-lifecycle.ts
+│   │       ├── [4.0K]  evolution
+│   │       │   ├── [ 568]  runtime-evolution-engine.ts
+│   │       │   ├── [ 843]  self-evolving-runtime-intelligence.ts
+│   │       │   └── [ 910]  self-sustaining-runtime-evolution.ts
+│   │       ├── [4.0K]  execution
+│   │       │   ├── [ 726]  cognitive-runtime-execution-graph.ts
+│   │       │   ├── [ 793]  real-runtime-domain-execution.ts
+│   │       │   ├── [ 898]  real-runtime-execution-core.ts
+│   │       │   └── [ 684]  runtime-execution-engine.ts
+│   │       ├── [4.0K]  fabric
+│   │       │   ├── [ 822]  runtime-fabric-activation.ts
+│   │       │   └── [ 741]  unified-cognitive-runtime-fabric.ts
+│   │       ├── [4.0K]  governance
+│   │       │   ├── [ 792]  adaptive-cognitive-governance.ts
+│   │       │   └── [ 899]  production-runtime-governance.ts
+│   │       ├── [4.0K]  graph
+│   │       │   ├── [ 938]  live-operational-graph-engine.ts
+│   │       │   └── [ 943]  runtime-graph-wiring.ts
+│   │       ├── [4.0K]  hydration
+│   │       │   └── [ 610]  runtime-hydration-engine.ts
+│   │       ├── [  83]  index.ts
+│   │       ├── [4.0K]  infrastructure
+│   │       │   └── [ 956]  production-runtime-infrastructure.ts
+│   │       ├── [4.0K]  integration
+│   │       │   ├── [ 659]  runtime-integration-bus.ts
+│   │       │   └── [ 640]  runtime-integration-layer.ts
+│   │       ├── [4.0K]  intelligence
+│   │       │   ├── [1.1K]  cognitive-execution-intelligence.ts
+│   │       │   ├── [ 914]  hyper-predictive-operational-intelligence.ts
+│   │       │   ├── [ 923]  real-operational-intelligence.ts
+│   │       │   ├── [ 711]  runtime-intelligence-engine.ts
+│   │       │   └── [ 879]  runtime-intelligence-execution.ts
+│   │       ├── [4.0K]  interactions
+│   │       │   └── [ 859]  real-runtime-interaction-engine.ts
+│   │       ├── [4.0K]  kernel
+│   │       │   ├── [ 671]  cognitive-runtime-kernel-fusion.ts
+│   │       │   ├── [  79]  runtime-context.ts
+│   │       │   ├── [ 729]  runtime-kernel.ts
+│   │       │   ├── [  90]  runtime-lifecycle.ts
+│   │       │   └── [ 238]  runtime-services.ts
+│   │       ├── [4.0K]  knowledge
+│   │       │   ├── [ 569]  operational-knowledge-graph.ts
+│   │       │   └── [ 605]  real-operational-knowledge-runtime.ts
+│   │       ├── [4.0K]  learning
+│   │       │   └── [ 658]  runtime-learning-layer.ts
+│   │       ├── [4.0K]  ledger
+│   │       │   ├── [ 718]  operational-ledger-runtime.ts
+│   │       │   └── [ 993]  real-ledger-accounting-system.ts
+│   │       ├── [4.0K]  materialization
+│   │       │   └── [ 851]  runtime-wiring-engine.ts
+│   │       ├── [4.0K]  memory
+│   │       │   └── [ 896]  semantic-runtime-memory.ts
+│   │       ├── [4.0K]  mesh
+│   │       │   └── [ 654]  cognitive-runtime-mesh.ts
+│   │       ├── [4.0K]  mutations
+│   │       │   └── [ 845]  real-runtime-mutation-engine.ts
+│   │       ├── [4.0K]  network
+│   │       │   └── [ 730]  live-operational-runtime-network.ts
+│   │       ├── [4.0K]  observability
+│   │       │   ├── [ 885]  enterprise-observability-stack.ts
+│   │       │   └── [ 761]  operational-runtime-observability.ts
+│   │       ├── [4.0K]  orchestration
+│   │       │   ├── [ 623]  autonomous-runtime-orchestrator.ts
+│   │       │   └── [ 851]  real-event-orchestration.ts
+│   │       ├── [4.0K]  orchestrator
+│   │       │   └── [ 930]  unified-runtime-orchestrator.ts
+│   │       ├── [4.0K]  registry
+│   │       │   ├── [ 412]  module-registry.ts
+│   │       │   └── [ 146]  runtime-module-manifest.ts
+│   │       ├── [4.0K]  replay
+│   │       │   └── [ 648]  real-runtime-event-replay.ts
+│   │       ├── [4.0K]  runtime
+│   │       │   └── [ 733]  runtime-operationalization-layer.ts
+│   │       ├── [4.0K]  saas
+│   │       │   └── [ 886]  saas-runtime-delivery.ts
+│   │       ├── [4.0K]  security
+│   │       │   ├── [ 926]  operational-runtime-security-layer.ts
+│   │       │   └── [ 863]  runtime-identity-access-system.ts
+│   │       ├── [4.0K]  services
+│   │       │   └── [ 591]  real-runtime-services.ts
+│   │       ├── [4.0K]  simulation
+│   │       │   └── [ 696]  cognitive-runtime-simulation-layer.ts
+│   │       ├── [4.0K]  state
+│   │       │   └── [ 443]  runtime-state-materialization.ts
+│   │       ├── [4.0K]  streaming
+│   │       │   └── [ 891]  enterprise-event-streaming-fabric.ts
+│   │       ├── [4.0K]  sync
+│   │       │   └── [ 958]  distributed-runtime-synchronization.ts
+│   │       ├── [4.0K]  synthesis
+│   │       │   └── [ 879]  runtime-synthesis-engine.ts
+│   │       ├── [4.0K]  telemetry
+│   │       │   ├── [ 355]  module-health.ts
+│   │       │   ├── [ 527]  runtime-operational-telemetry.ts
+│   │       │   └── [ 331]  runtime-telemetry.ts
+│   │       ├── [4.0K]  tenancy
+│   │       │   └── [ 932]  multi-tenant-runtime-architecture.ts
+│   │       ├── [4.0K]  twins
+│   │       │   └── [ 809]  predictive-operational-twin-system.ts
+│   │       ├── [4.0K]  workflows
+│   │       │   ├── [ 725]  executable-operational-workflows.ts
+│   │       │   ├── [ 312]  finance-runtime-workflow.ts
+│   │       │   ├── [ 333]  pos-runtime-workflow.ts
+│   │       │   ├── [ 904]  real-workflow-runtime-execution.ts
+│   │       │   └── [ 361]  repairflow-runtime-workflow.ts
+│   │       └── [4.0K]  workspaces
+│   │           └── [ 613]  live-runtime-workspaces.ts
+│   ├── [4.0K]  runtime-events
+│   │   ├── [ 196]  package.json
+│   │   └── [4.0K]  src
+│   │       ├── [4.0K]  bus
+│   │       │   └── [ 823]  runtime-event-bus.ts
+│   │       └── [  40]  index.ts
+│   ├── [4.0K]  state-engine
+│   │   └── [4.0K]  src
+│   │       ├── [4.0K]  archive
+│   │       │   ├── [ 138]  archive-replay-engine.ts
+│   │       │   ├── [ 346]  archive-timeline.ts
+│   │       │   └── [ 268]  runtime-time-machine.ts
+│   │       ├── [4.0K]  business
+│   │       │   └── [ 833]  real-business-state.ts
+│   │       ├── [4.0K]  dexie
+│   │       │   └── [1.1K]  real-dexie-runtime-storage.ts
+│   │       ├── [4.0K]  engine
+│   │       │   └── [ 287]  state-engine.ts
+│   │       ├── [4.0K]  persistence
+│   │       │   └── [ 367]  dexie-adapter.ts
+│   │       ├── [4.0K]  projections
+│   │       │   └── [ 536]  runtime-projection-engine.ts
+│   │       ├── [4.0K]  recovery
+│   │       │   └── [ 428]  runtime-recovery.ts
+│   │       └── [4.0K]  runtime
+│   │           └── [ 768]  runtime-data-layer.ts
+│   └── [4.0K]  ui-system
+│       ├── [ 172]  package.json
+│       └── [4.0K]  src
+│           ├── [4.0K]  cognitive
+│           │   └── [ 559]  cognitive-operational-ui.ts
+│           ├── [4.0K]  contracts
+│           │   └── [  79]  runtime-widget.ts
+│           ├── [  86]  index.ts
+│           ├── [4.0K]  layouts
+│           │   └── [ 333]  adaptive-layout-engine.ts
+│           ├── [4.0K]  navigation
+│           │   └── [ 355]  runtime-navigation.ts
+│           └── [4.0K]  shell
+│               ├── [ 393]  runtime-shell.tsx
+│               └── [ 314]  shell-composition-engine.ts
+├── [4.0K]  public
+│   └── [ 39K]  opengraph.jpg
+├── [4.0K]  read-models
+├── [4.0K]  runtime
+├── [2.0K]  server.js
+├── [4.0K]  src
+│   ├── [4.0K]  accounting
+│   │   ├── [ 302]  chartOfAccounts.js
+│   │   ├── [   0]  journal.generator.js
+│   │   ├── [   0]  ledger.engine.js
+│   │   ├── [4.0K]  legacy
+│   │   │   ├── [   0]  accounts.js
+│   │   │   ├── [5.1K]  ledger-engine.js
+│   │   │   ├── [2.8K]  ledger-engine.test.js
+│   │   │   └── [   0]  ledger-types.js
+│   │   └── [   0]  posting.engine.js
+│   ├── [4.0K]  analytics
+│   │   ├── [   0]  kpi.engine.js
+│   │   ├── [   0]  margin.engine.js
+│   │   └── [   0]  trend.engine.js
+│   ├── [4.0K]  app
+│   │   ├── [4.0K]  seed
+│   │   │   └── [ 801]  seed.js
+│   │   ├── [4.0K]  state
+│   │   │   └── [   0]  store.js
+│   │   ├── [4.0K]  testing
+│   │   │   └── [5.9K]  autoTest.js
+│   │   └── [4.0K]  usecases
+│   │       ├── [1012]  createExpense.js
+│   │       ├── [3.7K]  createPurchase.js
+│   │       ├── [ 831]  createReceipt.js
+│   │       ├── [2.2K]  createRepair.js
+│   │       ├── [6.2K]  createSale.js
+│   │       ├── [2.8K]  createSale.test.js
+│   │       ├── [   0]  reconcilePending.js
+│   │       └── [   0]  recordExpense.js
+│   ├── [ 885]  bootstrap.js
+│   ├── [4.0K]  core
+│   │   ├── [4.0K]  accounting
+│   │   │   ├── [1.1K]  account.lookup.js
+│   │   │   ├── [ 292]  account.map.js
+│   │   │   ├── [ 620]  account.service.js
+│   │   │   ├── [1.1K]  accounting.engine.js
+│   │   │   ├── [1.8K]  balance.sheet.engine.js
+│   │   │   ├── [1.1K]  chartOfAccounts.js
+│   │   │   ├── [ 292]  period.lock.js
+│   │   │   ├── [4.7K]  report.engine.js
+│   │   │   └── [1.7K]  trend.engine.js
+│   │   ├── [ 350]  action.bus.js
+│   │   ├── [4.0K]  adaptive
+│   │   │   ├── [2.6K]  adaptive.engine.js
+│   │   │   └── [2.1K]  profile.engine.js
+│   │   ├── [4.0K]  audit
+│   │   │   ├── [ 555]  audit.repo.js
+│   │   │   └── [ 292]  audit.service.js
+│   │   ├── [4.0K]  backup
+│   │   │   └── [1.7K]  backup.engine.js
+│   │   ├── [4.0K]  buy
+│   │   │   └── [2.0K]  buy.engine.js
+│   │   ├── [4.0K]  confidence
+│   │   │   └── [1.5K]  confidence.engine.js
+│   │   ├── [4.0K]  control
+│   │   │   └── [1.2K]  control.engine.js
+│   │   ├── [4.0K]  decision
+│   │   │   └── [3.5K]  decision.engine.js
+│   │   ├── [4.0K]  explain
+│   │   │   └── [1.7K]  explain.engine.js
+│   │   ├── [4.0K]  forecast
+│   │   │   └── [2.4K]  forecast.engine.js
+│   │   ├── [4.0K]  ids
+│   │   │   └── [   0]  uuid.js
+│   │   ├── [4.0K]  learning
+│   │   │   └── [3.0K]  learning.engine.js
+│   │   ├── [4.0K]  memory
+│   │   │   ├── [1.4K]  memory.engine.js
+│   │   │   └── [1004]  memory.repo.js
+│   │   ├── [4.0K]  money
+│   │   │   └── [   0]  money.js
+│   │   ├── [4.0K]  realtime
+│   │   │   ├── [ 697]  eventBus.js
+│   │   │   ├── [ 444]  events.js
+│   │   │   └── [1.1K]  realtime.engine.js
+│   │   ├── [4.0K]  simulation
+│   │   │   └── [1.5K]  simulation.engine.js
+│   │   ├── [4.0K]  strategy
+│   │   │   └── [5.5K]  strategy.engine.js
+│   │   ├── [4.0K]  ui
+│   │   │   └── [ 737]  safe-dom.js
+│   │   └── [4.0K]  validation
+│   │       └── [   0]  validators.js
+│   ├── [4.0K]  domain
+│   │   ├── [4.0K]  account
+│   │   │   ├── [ 353]  account.model.js
+│   │   │   └── [ 773]  account.repo.js
+│   │   ├── [4.0K]  adaptive
+│   │   │   └── [ 532]  profile.repo.js
+│   │   ├── [4.0K]  customer
+│   │   │   ├── [ 194]  customer.model.js
+│   │   │   ├── [ 832]  customer.repo.js
+│   │   │   └── [ 515]  customer.service.js
+│   │   ├── [4.0K]  decision
+│   │   │   └── [ 164]  decision.repo.js
+│   │   ├── [4.0K]  expense
+│   │   │   ├── [ 470]  expense.model.js
+│   │   │   ├── [ 479]  expense.repo.js
+│   │   │   └── [ 303]  expense.service.js
+│   │   ├── [4.0K]  ledger
+│   │   │   ├── [1.9K]  ledger.repo.js
+│   │   │   └── [   0]  ledger.service.js
+│   │   ├── [4.0K]  partner
+│   │   │   ├── [   0]  partner.model.js
+│   │   │   ├── [   0]  partner.repo.js
+│   │   │   └── [   0]  partner.service.js
+│   │   ├── [4.0K]  product
+│   │   │   ├── [1.6K]  product.model.js
+│   │   │   ├── [2.8K]  product.repo.js
+│   │   │   └── [1.7K]  product.service.js
+│   │   ├── [4.0K]  receipt
+│   │   │   ├── [ 774]  receipt.model.js
+│   │   │   └── [ 493]  receipt.repo.js
+│   │   ├── [4.0K]  repair
+│   │   │   ├── [ 517]  repair.model.js
+│   │   │   ├── [ 475]  repair.repo.js
+│   │   │   └── [ 514]  repair.service.js
+│   │   ├── [4.0K]  reports
+│   │   │   ├── [1.2K]  cash.intelligence.js
+│   │   │   └── [4.5K]  reports.service.js
+│   │   ├── [4.0K]  sale
+│   │   │   ├── [   0]  sale.model.js
+│   │   │   ├── [ 488]  sale.repo.js
+│   │   │   └── [   0]  sale.service.js
+│   │   └── [4.0K]  stock
+│   │       ├── [ 816]  stock.balance.repo.js
+│   │       ├── [2.5K]  stock.balance.service.js
+│   │       ├── [ 282]  stock.model.js
+│   │       ├── [ 512]  stock.repo.js
+│   │       └── [1.3K]  stock.service.js
+│   ├── [4.0K]  events
+│   │   ├── [   0]  event.factory.js
+│   │   ├── [   0]  event.pipeline.js
+│   │   ├── [   0]  event.store.js
+│   │   ├── [ 170]  event.stream.js
+│   │   ├── [   0]  event.types.js
+│   │   ├── [ 716]  eventBus.core.js
+│   │   └── [   0]  eventBus.js
+│   ├── [4.0K]  infra
+│   │   ├── [4.0K]  db
+│   │   │   ├── [2.2K]  db.js
+│   │   │   ├── [ 675]  db.test.js
+│   │   │   ├── [   0]  migrations.js
+│   │   │   └── [   0]  tables.js
+│   │   └── [4.0K]  repos
+│   │       └── [2.2K]  base.repo.js
+│   ├── [4.0K]  intelligence
+│   │   ├── [4.0K]  customer
+│   │   │   └── [ 456]  customer.intelligence.js
+│   │   ├── [4.0K]  finance
+│   │   │   ├── [ 489]  cashflow.engine.js
+│   │   │   └── [2.8K]  financial.engine.js
+│   │   ├── [3.8K]  intelligence.orchestrator.js
+│   │   ├── [4.0K]  inventory
+│   │   │   └── [1.2K]  inventory.engine.js
+│   │   ├── [4.0K]  legacy
+│   │   │   └── [2.8K]  insight.engine.js
+│   │   ├── [4.0K]  negotiation
+│   │   │   ├── [2.4K]  negotiation.engine.js
+│   │   │   ├── [ 997]  negotiation.learning.js
+│   │   │   └── [1.1K]  negotiation.rules.js
+│   │   ├── [4.0K]  pricing
+│   │   │   ├── [3.3K]  SmartPricingEngine.js
+│   │   │   ├── [  42]  index.js
+│   │   │   ├── [1.4K]  pricingLearning.js
+│   │   │   ├── [1.3K]  pricingMemory.repo.js
+│   │   │   ├── [ 662]  pricingRules.js
+│   │   │   └── [ 478]  pricingSignals.js
+│   │   └── [4.0K]  product
+│   │       ├── [1.2K]  margin.analyzer.js
+│   │       ├── [2.9K]  margin.engine.js
+│   │       └── [1.4K]  margin.rules.js
+│   ├── [4.0K]  modules
+│   │   ├── [4.0K]  _shared
+│   │   │   └── [2.4K]  ui.js
+│   │   ├── [4.0K]  admin
+│   │   │   └── [ 13K]  admin.screen.js
+│   │   ├── [4.0K]  crm
+│   │   │   └── [7.4K]  crm.screen.js
+│   │   ├── [4.0K]  customers
+│   │   │   ├── [ 656]  customer.profile.js
+│   │   │   ├── [1.8K]  customer.profile.screen.js
+│   │   │   ├── [4.4K]  customers.analytics.screen.js
+│   │   │   └── [2.5K]  customers.screen.js
+│   │   ├── [4.0K]  dashboard
+│   │   │   └── [4.6K]  dashboard.screen.js
+│   │   ├── [4.0K]  finance
+│   │   │   ├── [1.8K]  balance.sheet.screen.js
+│   │   │   ├── [1.5K]  chart.accounts.screen.js
+│   │   │   ├── [1.3K]  expenses.screen.js
+│   │   │   ├── [4.6K]  finance.dashboard.screen.js
+│   │   │   ├── [ 11K]  finance.screen.js
+│   │   │   ├── [3.9K]  financial.reports.screen.js
+│   │   │   ├── [2.1K]  journal.entry.screen.js
+│   │   │   ├── [3.3K]  payment.analytics.screen.js
+│   │   │   ├── [5.2K]  reports.screen.js
+│   │   │   └── [1.1K]  trends.screen.js
+│   │   ├── [4.0K]  hr
+│   │   │   └── [ 16K]  hr.screen.js
+│   │   ├── [4.0K]  intelligence
+│   │   │   ├── [3.3K]  predictive.screen.js
+│   │   │   ├── [3.4K]  scenarios.screen.js
+│   │   │   └── [3.6K]  strategy.screen.js
+│   │   ├── [4.0K]  inventory
+│   │   │   ├── [7.0K]  extras.screen.js
+│   │   │   ├── [2.1K]  inventory.screen.js
+│   │   │   └── [2.3K]  products.screen.js
+│   │   ├── [4.0K]  manufacturing
+│   │   │   └── [9.3K]  manufacturing.screen.js
+│   │   ├── [4.0K]  operations
+│   │   │   ├── [1.3K]  purchase.screen.js
+│   │   │   ├── [2.8K]  receipts.screen.js
+│   │   │   ├── [1.2K]  repair.screen.js
+│   │   │   └── [3.5K]  sales.screen.js
+│   │   ├── [4.0K]  pos
+│   │   │   ├── [   0]  cart.engine.js
+│   │   │   ├── [   0]  payment.flow.js
+│   │   │   ├── [   0]  pos.controller.js
+│   │   │   ├── [4.6K]  pos.db.js
+│   │   │   ├── [ 456]  pos.events.js
+│   │   │   ├── [1.9K]  pos.flow.js
+│   │   │   ├── [6.7K]  pos.screen.js
+│   │   │   ├── [4.6K]  returns.screen.js
+│   │   │   └── [3.5K]  sessions.screen.js
+│   │   ├── [4.0K]  purchase
+│   │   │   ├── [5.1K]  orders.screen.js
+│   │   │   ├── [4.8K]  returns.screen.js
+│   │   │   └── [1.9K]  suppliers.screen.js
+│   │   ├── [4.0K]  repair
+│   │   │   ├── [4.7K]  billing.screen.js
+│   │   │   ├── [4.1K]  board.screen.js
+│   │   │   ├── [5.0K]  diagnostics.screen.js
+│   │   │   ├── [5.1K]  parts.screen.js
+│   │   │   ├── [2.6K]  portal.screen.js
+│   │   │   ├── [1.9K]  repair.db.js
+│   │   │   └── [7.7K]  tickets.screen.js
+│   │   ├── [4.0K]  reports
+│   │   │   └── [8.4K]  reports.screen.js
+│   │   └── [4.0K]  sales
+│   │       ├── [2.2K]  history.screen.js
+│   │       ├── [2.7K]  invoices.screen.js
+│   │       ├── [2.4K]  payments.screen.js
+│   │       └── [2.7K]  quotations.screen.js
+│   ├── [4.0K]  relations
+│   │   ├── [1.9K]  customer.engine.js
+│   │   └── [   0]  supplier.engine.js
+│   ├── [4.0K]  runtime
+│   │   ├── [4.0K]  adapters
+│   │   │   └── [1.0K]  pos.runtime.adapter.js
+│   │   ├── [4.0K]  audit
+│   │   │   ├── [4.2K]  business.integrity.engine.js
+│   │   │   ├── [2.9K]  dependency.graph.js
+│   │   │   ├── [2.2K]  live.execution.audit.js
+│   │   │   ├── [3.5K]  recovery.backlog.generator.js
+│   │   │   ├── [2.4K]  recovery.scanner.js
+│   │   │   ├── [1.8K]  runtime.audit.js
+│   │   │   ├── [2.7K]  runtime.diagnostics.js
+│   │   │   └── [2.9K]  workflow.transaction.audit.js
+│   │   ├── [4.0K]  recovery
+│   │   │   └── [3.0K]  runtime.recovery.map.js
+│   │   ├── [4.0K]  registry
+│   │   │   ├── [5.5K]  module.registry.js
+│   │   │   └── [ 653]  route.registry.js
+│   │   ├── [4.0K]  state
+│   │   │   └── [1.2K]  runtime.state.js
+│   │   ├── [4.0K]  telemetry
+│   │   │   └── [2.8K]  runtime.telemetry.js
+│   │   └── [4.0K]  workspace
+│   │       └── [1.2K]  workspace.shell.js
+│   ├── [4.0K]  shared
+│   │   ├── [   0]  constants.js
+│   │   ├── [   0]  format.js
+│   │   └── [   0]  helpers.js
+│   ├── [4.0K]  state
+│   │   ├── [   0]  cash.state.js
+│   │   ├── [   0]  customer.state.js
+│   │   └── [   0]  stock.state.js
+│   ├── [4.0K]  transactions
+│   │   ├── [   0]  audit.log.js
+│   │   ├── [   0]  expense.tx.js
+│   │   ├── [1.8K]  payment.tx.js
+│   │   ├── [   0]  purchase.tx.js
+│   │   ├── [   0]  sales.tx.js
+│   │   └── [   0]  stock.tx.js
+│   └── [4.0K]  ui
+│       ├── [4.0K]  components
+│       │   ├── [   0]  alert.banner.js
+│       │   ├── [   0]  base.component.js
+│       │   ├── [   0]  kpi.card.js
+│       │   ├── [ 464]  panel.manager.js
+│       │   ├── [   0]  table.js
+│       │   └── [   0]  timeline.js
+│       ├── [4.0K]  experience
+│       │   ├── [ 646]  ux.engine.js
+│       │   ├── [2.0K]  ux.orchestrator.js
+│       │   ├── [1.0K]  ux.rules.js
+│       │   └── [1.3K]  ux.signals.js
+│       ├── [4.0K]  layout
+│       │   ├── [   0]  app.layout.js
+│       │   ├── [2.7K]  app.shell.js
+│       │   ├── [ 13K]  layout.engine.js
+│       │   ├── [3.2K]  sidebar.js
+│       │   └── [   0]  topbar.js
+│       ├── [4.0K]  legacy
+│       │   ├── [5.1K]  master.dashboard.screen.js
+│       │   └── [1.0K]  partners.screen.js
+│       ├── [4.0K]  modals
+│       │   ├── [1.8K]  cart.modal.js
+│       │   ├── [   0]  event.detail.modal.js
+│       │   ├── [ 596]  modal.manager.js
+│       │   ├── [2.0K]  payment.modal.js
+│       │   ├── [1.7K]  payment.modal.v2.js
+│       │   └── [ 731]  receipt.modal.js
+│       ├── [4.0K]  screens
+│       │   ├── [ 320]  dashboard.screen.js
+│       │   ├── [ 308]  intelligence.screen.js
+│       │   ├── [ 312]  operations.screen.js
+│       │   ├── [ 299]  people.screen.js
+│       │   ├── [ 290]  system.screen.js
+│       │   └── [ 333]  transactions.screen.js
+│       └── [4.0K]  styles
+│           ├── [ 232]  accounting.css
+│           ├── [ 284]  balance.sheet.css
+│           ├── [2.0K]  cockpit.css
+│           ├── [   0]  components.css
+│           ├── [ 795]  customers.analytics.css
+│           ├── [2.1K]  customers.css
+│           ├── [ 495]  dashboard.css
+│           ├── [ 328]  finance.dashboard.css
+│           ├── [ 327]  financial.reports.css
+│           ├── [1.6K]  inventory.css
+│           ├── [3.8K]  layout.css
+│           ├── [ 311]  modal.css
+│           ├── [ 480]  payment.analytics.css
+│           ├── [3.8K]  pos.css
+│           ├── [ 485]  reports.css
+│           ├── [2.3K]  sidebar.css
+│           ├── [   0]  theme.css
+│           └── [ 322]  trends.css
+├── [ 38K]  structure_final.txt
+└── [  22]  خدم سرفر.txt
+
+187 directories, 412 files

@@ -1,0 +1,73 @@
+src/modules
+├── _shared
+│   └── ui.js
+├── admin
+│   └── admin.screen.js
+├── crm
+│   └── crm.screen.js
+├── customers
+│   ├── customer.profile.js
+│   ├── customer.profile.screen.js
+│   ├── customers.analytics.screen.js
+│   └── customers.screen.js
+├── dashboard
+│   └── dashboard.screen.js
+├── finance
+│   ├── balance.sheet.screen.js
+│   ├── chart.accounts.screen.js
+│   ├── expenses.screen.js
+│   ├── finance.dashboard.screen.js
+│   ├── finance.screen.js
+│   ├── financial.reports.screen.js
+│   ├── journal.entry.screen.js
+│   ├── payment.analytics.screen.js
+│   ├── reports.screen.js
+│   └── trends.screen.js
+├── hr
+│   └── hr.screen.js
+├── intelligence
+│   ├── predictive.screen.js
+│   ├── scenarios.screen.js
+│   └── strategy.screen.js
+├── inventory
+│   ├── extras.screen.js
+│   ├── inventory.screen.js
+│   └── products.screen.js
+├── manufacturing
+│   └── manufacturing.screen.js
+├── operations
+│   ├── purchase.screen.js
+│   ├── receipts.screen.js
+│   ├── repair.screen.js
+│   └── sales.screen.js
+├── pos
+│   ├── cart.engine.js
+│   ├── payment.flow.js
+│   ├── pos.controller.js
+│   ├── pos.db.js
+│   ├── pos.events.js
+│   ├── pos.flow.js
+│   ├── pos.screen.js
+│   ├── returns.screen.js
+│   └── sessions.screen.js
+├── purchase
+│   ├── orders.screen.js
+│   ├── returns.screen.js
+│   └── suppliers.screen.js
+├── repair
+│   ├── billing.screen.js
+│   ├── board.screen.js
+│   ├── diagnostics.screen.js
+│   ├── parts.screen.js
+│   ├── portal.screen.js
+│   ├── repair.db.js
+│   └── tickets.screen.js
+├── reports
+│   └── reports.screen.js
+└── sales
+    ├── history.screen.js
+    ├── invoices.screen.js
+    ├── payments.screen.js
+    └── quotations.screen.js
+
+17 directories, 54 files

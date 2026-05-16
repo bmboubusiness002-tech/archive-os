@@ -1,0 +1,282 @@
+src/core
+├── accounting
+│   ├── account.lookup.js
+│   ├── account.map.js
+│   ├── account.service.js
+│   ├── accounting.engine.js
+│   ├── balance.sheet.engine.js
+│   ├── chartOfAccounts.js
+│   ├── period.lock.js
+│   ├── report.engine.js
+│   └── trend.engine.js
+├── action.bus.js
+├── adaptive
+│   ├── adaptive.engine.js
+│   └── profile.engine.js
+├── audit
+│   ├── audit.repo.js
+│   └── audit.service.js
+├── backup
+│   └── backup.engine.js
+├── buy
+│   └── buy.engine.js
+├── confidence
+│   └── confidence.engine.js
+├── control
+│   └── control.engine.js
+├── decision
+│   └── decision.engine.js
+├── explain
+│   └── explain.engine.js
+├── forecast
+│   └── forecast.engine.js
+├── ids
+│   └── uuid.js
+├── learning
+│   └── learning.engine.js
+├── memory
+│   ├── memory.engine.js
+│   └── memory.repo.js
+├── money
+│   └── money.js
+├── realtime
+│   ├── eventBus.js
+│   ├── events.js
+│   └── realtime.engine.js
+├── simulation
+│   └── simulation.engine.js
+├── strategy
+│   └── strategy.engine.js
+├── ui
+│   └── safe-dom.js
+└── validation
+    └── validators.js
+packages
+├── contracts
+│   ├── package.json
+│   └── src
+│       ├── events
+│       │   └── runtime-event.ts
+│       ├── index.ts
+│       └── kernel
+│           ├── runtime-context.ts
+│           └── runtime-module.ts
+├── event-bus
+│   └── src
+│       ├── contracts
+│       │   └── runtime-event.ts
+│       ├── core
+│       │   └── event-bus.ts
+│       └── runtime-operational-event-bus.ts
+├── runtime-core
+│   ├── package.json
+│   └── src
+│       ├── agents
+│       │   ├── adaptive-runtime-agents.ts
+│       │   ├── autonomous-cognitive-agents-network.ts
+│       │   └── autonomous-operational-agents-system.ts
+│       ├── ai
+│       │   ├── ai-operational-orchestration.ts
+│       │   ├── enterprise-ai-runtime-services.ts
+│       │   ├── event-intelligence.ts
+│       │   ├── operational-memory-index.ts
+│       │   ├── real-ai-reasoning-runtime.ts
+│       │   ├── real-operational-ai-execution.ts
+│       │   ├── real-operational-ai-runtime.ts
+│       │   ├── runtime-context-graph.ts
+│       │   └── workflow-orchestrator.ts
+│       ├── analytics
+│       │   └── real-runtime-analytics.ts
+│       ├── api
+│       │   └── runtime-api-gateway.ts
+│       ├── automation
+│       │   ├── real-runtime-automation.ts
+│       │   └── runtime-cognitive-automation-mesh.ts
+│       ├── autonomous
+│       │   ├── autonomous-operational-loops.ts
+│       │   └── autonomous-operational-runtime.ts
+│       ├── bootstrap
+│       │   ├── real-runtime-bootstrap.ts
+│       │   └── runtime-orchestrator.ts
+│       ├── civilization
+│       │   └── autonomous-operational-civilization-layer.ts
+│       ├── cognition
+│       │   └── operational-cognitive-layer.ts
+│       ├── contracts
+│       │   └── runtime-module.ts
+│       ├── convergence
+│       │   ├── executable-operational-graph.ts
+│       │   ├── persistent-runtime-state.ts
+│       │   ├── runtime-composition-graph.ts
+│       │   ├── runtime-execution-pipeline.ts
+│       │   └── unified-runtime-registry.ts
+│       ├── coordination
+│       │   └── operational-cognitive-coordination.ts
+│       ├── database
+│       │   └── enterprise-runtime-database-layer.ts
+│       ├── decision
+│       │   └── runtime-cognitive-decision-engine.ts
+│       ├── delivery
+│       │   └── runtime-production-delivery.ts
+│       ├── deployment
+│       │   └── enterprise-deployment-fabric.ts
+│       ├── domains
+│       │   ├── executable-runtime-domains.ts
+│       │   ├── real-business-runtime-domains.ts
+│       │   └── runtime-domain-manifest.ts
+│       ├── ecosystem
+│       │   └── production-runtime-ecosystem.ts
+│       ├── entities
+│       │   ├── operational-entity-graph.ts
+│       │   ├── real-runtime-entity-engine.ts
+│       │   └── runtime-entity-lifecycle.ts
+│       ├── evolution
+│       │   ├── runtime-evolution-engine.ts
+│       │   ├── self-evolving-runtime-intelligence.ts
+│       │   └── self-sustaining-runtime-evolution.ts
+│       ├── execution
+│       │   ├── cognitive-runtime-execution-graph.ts
+│       │   ├── real-runtime-domain-execution.ts
+│       │   ├── real-runtime-execution-core.ts
+│       │   └── runtime-execution-engine.ts
+│       ├── fabric
+│       │   ├── runtime-fabric-activation.ts
+│       │   └── unified-cognitive-runtime-fabric.ts
+│       ├── governance
+│       │   ├── adaptive-cognitive-governance.ts
+│       │   └── production-runtime-governance.ts
+│       ├── graph
+│       │   ├── live-operational-graph-engine.ts
+│       │   └── runtime-graph-wiring.ts
+│       ├── hydration
+│       │   └── runtime-hydration-engine.ts
+│       ├── index.ts
+│       ├── infrastructure
+│       │   └── production-runtime-infrastructure.ts
+│       ├── integration
+│       │   ├── runtime-integration-bus.ts
+│       │   └── runtime-integration-layer.ts
+│       ├── intelligence
+│       │   ├── cognitive-execution-intelligence.ts
+│       │   ├── hyper-predictive-operational-intelligence.ts
+│       │   ├── real-operational-intelligence.ts
+│       │   ├── runtime-intelligence-engine.ts
+│       │   └── runtime-intelligence-execution.ts
+│       ├── interactions
+│       │   └── real-runtime-interaction-engine.ts
+│       ├── kernel
+│       │   ├── cognitive-runtime-kernel-fusion.ts
+│       │   ├── runtime-context.ts
+│       │   ├── runtime-kernel.ts
+│       │   ├── runtime-lifecycle.ts
+│       │   └── runtime-services.ts
+│       ├── knowledge
+│       │   ├── operational-knowledge-graph.ts
+│       │   └── real-operational-knowledge-runtime.ts
+│       ├── learning
+│       │   └── runtime-learning-layer.ts
+│       ├── ledger
+│       │   ├── operational-ledger-runtime.ts
+│       │   └── real-ledger-accounting-system.ts
+│       ├── materialization
+│       │   └── runtime-wiring-engine.ts
+│       ├── memory
+│       │   └── semantic-runtime-memory.ts
+│       ├── mesh
+│       │   └── cognitive-runtime-mesh.ts
+│       ├── mutations
+│       │   └── real-runtime-mutation-engine.ts
+│       ├── network
+│       │   └── live-operational-runtime-network.ts
+│       ├── observability
+│       │   ├── enterprise-observability-stack.ts
+│       │   └── operational-runtime-observability.ts
+│       ├── orchestration
+│       │   ├── autonomous-runtime-orchestrator.ts
+│       │   └── real-event-orchestration.ts
+│       ├── orchestrator
+│       │   └── unified-runtime-orchestrator.ts
+│       ├── registry
+│       │   ├── module-registry.ts
+│       │   └── runtime-module-manifest.ts
+│       ├── replay
+│       │   └── real-runtime-event-replay.ts
+│       ├── runtime
+│       │   └── runtime-operationalization-layer.ts
+│       ├── saas
+│       │   └── saas-runtime-delivery.ts
+│       ├── security
+│       │   ├── operational-runtime-security-layer.ts
+│       │   └── runtime-identity-access-system.ts
+│       ├── services
+│       │   └── real-runtime-services.ts
+│       ├── simulation
+│       │   └── cognitive-runtime-simulation-layer.ts
+│       ├── state
+│       │   └── runtime-state-materialization.ts
+│       ├── streaming
+│       │   └── enterprise-event-streaming-fabric.ts
+│       ├── sync
+│       │   └── distributed-runtime-synchronization.ts
+│       ├── synthesis
+│       │   └── runtime-synthesis-engine.ts
+│       ├── telemetry
+│       │   ├── module-health.ts
+│       │   ├── runtime-operational-telemetry.ts
+│       │   └── runtime-telemetry.ts
+│       ├── tenancy
+│       │   └── multi-tenant-runtime-architecture.ts
+│       ├── twins
+│       │   └── predictive-operational-twin-system.ts
+│       ├── workflows
+│       │   ├── executable-operational-workflows.ts
+│       │   ├── finance-runtime-workflow.ts
+│       │   ├── pos-runtime-workflow.ts
+│       │   ├── real-workflow-runtime-execution.ts
+│       │   └── repairflow-runtime-workflow.ts
+│       └── workspaces
+│           └── live-runtime-workspaces.ts
+├── runtime-events
+│   ├── package.json
+│   └── src
+│       ├── bus
+│       │   └── runtime-event-bus.ts
+│       └── index.ts
+├── state-engine
+│   └── src
+│       ├── archive
+│       │   ├── archive-replay-engine.ts
+│       │   ├── archive-timeline.ts
+│       │   └── runtime-time-machine.ts
+│       ├── business
+│       │   └── real-business-state.ts
+│       ├── dexie
+│       │   └── real-dexie-runtime-storage.ts
+│       ├── engine
+│       │   └── state-engine.ts
+│       ├── persistence
+│       │   └── dexie-adapter.ts
+│       ├── projections
+│       │   └── runtime-projection-engine.ts
+│       ├── recovery
+│       │   └── runtime-recovery.ts
+│       └── runtime
+│           └── runtime-data-layer.ts
+└── ui-system
+    ├── package.json
+    └── src
+        ├── cognitive
+        │   └── cognitive-operational-ui.ts
+        ├── contracts
+        │   └── runtime-widget.ts
+        ├── index.ts
+        ├── layouts
+        │   └── adaptive-layout-engine.ts
+        ├── navigation
+        │   └── runtime-navigation.ts
+        └── shell
+            ├── runtime-shell.tsx
+            └── shell-composition-engine.ts
+runtime
+
+108 directories, 171 files

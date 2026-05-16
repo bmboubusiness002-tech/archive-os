@@ -1,0 +1,57 @@
+src/ui
+├── components
+│   ├── alert.banner.js
+│   ├── base.component.js
+│   ├── kpi.card.js
+│   ├── panel.manager.js
+│   ├── table.js
+│   └── timeline.js
+├── experience
+│   ├── ux.engine.js
+│   ├── ux.orchestrator.js
+│   ├── ux.rules.js
+│   └── ux.signals.js
+├── layout
+│   ├── app.layout.js
+│   ├── app.shell.js
+│   ├── layout.engine.js
+│   ├── sidebar.js
+│   └── topbar.js
+├── legacy
+│   ├── master.dashboard.screen.js
+│   └── partners.screen.js
+├── modals
+│   ├── cart.modal.js
+│   ├── event.detail.modal.js
+│   ├── modal.manager.js
+│   ├── payment.modal.js
+│   ├── payment.modal.v2.js
+│   └── receipt.modal.js
+├── screens
+│   ├── dashboard.screen.js
+│   ├── intelligence.screen.js
+│   ├── operations.screen.js
+│   ├── people.screen.js
+│   ├── system.screen.js
+│   └── transactions.screen.js
+└── styles
+    ├── accounting.css
+    ├── balance.sheet.css
+    ├── cockpit.css
+    ├── components.css
+    ├── customers.analytics.css
+    ├── customers.css
+    ├── dashboard.css
+    ├── finance.dashboard.css
+    ├── financial.reports.css
+    ├── inventory.css
+    ├── layout.css
+    ├── modal.css
+    ├── payment.analytics.css
+    ├── pos.css
+    ├── reports.css
+    ├── sidebar.css
+    ├── theme.css
+    └── trends.css
+
+8 directories, 47 files

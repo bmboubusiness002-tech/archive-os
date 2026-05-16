@@ -1,0 +1,28 @@
+src/intelligence
+├── customer
+│   └── customer.intelligence.js
+├── finance
+│   ├── cashflow.engine.js
+│   └── financial.engine.js
+├── intelligence.orchestrator.js
+├── inventory
+│   └── inventory.engine.js
+├── legacy
+│   └── insight.engine.js
+├── negotiation
+│   ├── negotiation.engine.js
+│   ├── negotiation.learning.js
+│   └── negotiation.rules.js
+├── pricing
+│   ├── SmartPricingEngine.js
+│   ├── index.js
+│   ├── pricingLearning.js
+│   ├── pricingMemory.repo.js
+│   ├── pricingRules.js
+│   └── pricingSignals.js
+└── product
+    ├── margin.analyzer.js
+    ├── margin.engine.js
+    └── margin.rules.js
+
+8 directories, 18 files
